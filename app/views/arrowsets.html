@@ -1,0 +1,72 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-2x" ng-class="leftButton.iconClass"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+	<div class="navigation-bar__item quarter right" ng-show="rightButton">
+		<div class="navigation-bar__button" ng-click="rightButton.tap()"><i class="fa fa-plus fa-2x"></i></div>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<ul class="list-mobile">
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="!data.arrowsets">
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" ng-i18next="noArrowsetLoadedHeading"></h2>
+				<p ng-i18next="noArrowsetLoadedDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="!arrowsetsAvailable && !!data.arrowsets && !isArrowsetSelectPage">
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" ng-i18next="noArrowsetHeading"></h2>
+				<p ng-i18next="noArrowsetDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain"  ng-click="tap(null)" ng-if="isArrowsetSelectPage">
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" ng-i18next="noArrowsetUsage"></h2>
+				<p ng-i18next="noArrowsetUsageDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border" ng-repeat="arrowset in data.arrowsets track by $index" ng-click="tap(arrowset)" ng-taphold="taphold(arrowset)" ng-class="{active: isActive(arrowset), 'highlightTwo': $index%4==0, 'highlightThree': $index%4==1, 'highlightFour': $index%4==2, 'highlightFive': $index%4==3}" ng-hide="arrowset.disabled">
+
+			<div class="list-mobile__item__content" ng-class="{}">
+
+				<h2 class="list-mobile__item__heading">{{arrowset.name}}</h2>
+
+				<p ng-if="arrowset.note">{{arrowset.note}}</p>
+
+			</div>
+
+			<div><table class="table--striped">
+
+				<tr ng-repeat="(key, value) in formData track by $index" ng-if="arrowset[key] && key != 'name'">
+					<td ng-i18next="{{key}}"></td>
+					<td>{{arrowset[key]}}</td>
+				</tr>
+
+				<tr ng-if="arrowset.markers.length > 0">
+					<td ng-i18next="arrowsetsightMarker_plural" colspan="2"></td>
+				</tr>
+
+				<tr ng-repeat="marker in arrowset.markers track by $index">
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;{{data.distancesById[marker.distanceID].name}}</td>
+					<td>{{marker.position}}</td>
+				</tr>
+
+			</table></div>
+
+		</li>
+
+	</ul>
+
+</div></div>
+
+<div ng-selectmenu></div>

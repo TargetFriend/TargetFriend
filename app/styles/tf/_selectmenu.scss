@@ -1,0 +1,35 @@
+[ng-selectmenu] {
+	display: none;
+	&.active {
+		display:block;
+	}
+}
+.selectMenu {
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.2);
+	z-index: 999;
+
+	@include display-box;
+	@include box-orient(horizontal);
+	@include box-align(center);
+	@include box-pack(center);
+
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			padding: 22px 30px;
+			color: #fff;
+			font-size: 23px;
+			background-color: rgba(0, 0, 0, .8);
+			border-bottom: 1px solid #000;
+			&.ng-click-active {
+				opacity: .8;
+			}
+		}
+	}
+}

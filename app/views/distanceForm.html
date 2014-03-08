@@ -1,0 +1,46 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="name" ng-i18next="name"></label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="name" ng-model="distanceDetails.name">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="note" ng-i18next="note"></label>
+
+			<div class="form__input-row">
+				<textarea class="form__textarea" name="note" ng-model="distanceDetails.note"></textarea>
+			</div>
+		</div>
+
+	</form>
+
+	<div class="clearfix">
+
+		<div class="half alignLeft">
+			<span class="content" style="display:inline-block;padding-top:40px;" ng-show="isSaving">{{'saving' | i18next}}...</span>
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(distanceDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
+
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

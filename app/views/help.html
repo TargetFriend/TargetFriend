@@ -1,0 +1,47 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-2x" ng-class="leftButton.iconClass"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<div class="content">
+
+		<div ng-if="!page">
+			<h2 ng-i18next="helpPage.heading"></h2>
+			<ul>
+				<li><a ng-click="go('help/shootingPaper');" ng-i18next="shootingPaper"></a></li>
+			</ul>
+		</div>
+
+		<div ng-if="page">
+			<p><a ng-click="go('help');" ng-i18next="helpPage.backToOverview"></a></p>
+		</div>
+
+		<div ng-if="page == 'shootingPaper'">
+			<h2 ng-i18next="helpPage.shootingPaper.heading"></h2>
+
+			<p ng-i18next="[html]helpPage.shootingPaper.intro"></p>
+			<p ng-i18next="[html]helpPage.shootingPaper.tableInfo"></p>
+
+			<h3 ng-i18next="helpPage.shootingPaper.statisticsHeading"></h3>
+			<p ng-i18next="[html]helpPage.shootingPaper.statisticsInfo"></p>
+
+			<h3 ng-i18next="helpPage.shootingPaper.targetHeading"></h3>
+			<p ng-i18next="[html]helpPage.shootingPaper.targetInfo"></p>
+
+			<h3 ng-i18next="helpPage.shootingPaper.advancedEndsHeading"></h3>
+			<p ng-i18next="[html]helpPage.shootingPaper.advancedEndsInfo"></p>
+
+			<h3 ng-i18next="helpPage.shootingPaper.otherHeading"></h3>
+			<p ng-i18next="[html]helpPage.shootingPaper.otherInfo"></p>
+		</div>
+
+	</div>
+	<p>&nbsp;</p>
+
+</div></div>

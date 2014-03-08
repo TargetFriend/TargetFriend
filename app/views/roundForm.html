@@ -1,0 +1,177 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="name">{{'name' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="name" ng-model="roundDetails.name">
+			</div>
+		</div>
+
+		<div class="form__row--link" ng-click="$navigate.go('targetFaces');setHelperFormData()" ng-hide="isEditPage">
+			<div class="form__label center">
+				<img ng-if="roundDetails.targetFaceID" ng-src="{{data.targetFacesById[roundDetails.targetFaceID].img}}" style="width:100px;height:100px;">
+				<div ng-if="!roundDetails.targetFaceID" style="width:100px;height:100px;"></div>
+			</div>
+			<div class="form__input-row">
+				<p ng-if="roundDetails.targetFaceID">{{data.targetFacesById[roundDetails.targetFaceID].name}}</p>
+				<span ng-if="!roundDetails.targetFaceID">{{'noTargetFaceUsage_info' | i18next}}</span>
+			</div>
+		</div>
+
+		<div class="form__row">
+
+			<label class="form__label" for="endNumber">{{'end_plural' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="endNumber" ng-options="item for item in formData.endNumber" ng-model="roundDetails.endNumber" ng-disabled="isEditPage"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowNumber">{{'arrow_plural' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="arrowNumber" ng-options="item for item in formData.arrowNumber" ng-model="roundDetails.arrowNumber" ng-disabled="isEditPage"></select>
+			</div>
+		</div>
+
+		<div class="form__row--link" ng-click="$navigate.go('select/distance');setHelperFormData()">
+			<div class="form__label">
+				{{'distance' | i18next}}
+			</div>
+			<div class="form__input-row">
+				{{data.distancesById[roundDetails.distanceID].name}}
+				<span ng-show="!data.distancesById[roundDetails.distanceID].name" ng-i18next="[html]noDistance"></span>
+			</div>
+		</div>
+
+		<div class="form__row--link" ng-click="$navigate.go('select/bow');setHelperFormData()">
+			<div class="form__label">
+				{{'bow' | i18next}}
+			</div>
+			<div class="form__input-row">
+				{{data.bowsById[roundDetails.bowID].name}}
+				<span ng-if="!data.bowsById[roundDetails.bowID]" ng-i18next="noBow"></span>
+			</div>
+		</div>
+
+		<div class="form__row--link" ng-click="$navigate.go('select/arrowset');setHelperFormData()">
+			<div class="form__label">
+				{{'arrowset' | i18next}}
+			</div>
+			<div class="form__input-row">
+				{{data.arrowsetsById[roundDetails.arrowsetID].name}}
+				<span ng-if="!data.arrowsetsById[roundDetails.arrowsetID]" ng-i18next="noArrowset"></span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="outdoor" ng-i18next="outdoor"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="outdoor" ng-options="item.value as item.name for item in formData.outdoor" ng-model="roundDetails.outdoor"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="compound" ng-i18next="compound"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="compound" ng-options="item.value as item.name for item in formData.compound" ng-model="roundDetails.compound" ng-disabled="!roundDetails.targetFaceID"></select>
+			</div>
+		</div>
+
+		<div ng-show="roundDetails.outdoor">
+
+			<div class="form__row">
+				<label class="form__label" for="weather" ng-i18next="weather"></label>
+
+				<div class="form__input-row">
+					<select class="form__input__select" name="weather" ng-options="item for item in formData.weather" ng-model="roundDetails.weather"></select>
+				</div>
+			</div>
+
+			<div class="form__row">
+				<label class="form__label" for="windspeed" ng-i18next="windspeed"></label>
+
+				<div class="form__input-row">
+					<select class="form__input__select" name="windspeed" ng-options="item for item in formData.windspeed" ng-model="roundDetails.windspeed"></select>
+				</div>
+			</div>
+
+			<div class="form__row" ng-hide="roundDetails.windspeed == $i18next('noWind')">
+				<label class="form__label" for="winddirection" ng-i18next="winddirection"></label>
+
+				<div class="form__input-row">
+					<select class="form__input__select" name="winddirection" ng-options="item for item in formData.winddirection" ng-model="roundDetails.winddirection"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="light" ng-i18next="light"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="light" ng-options="item for item in formData.light" ng-model="roundDetails.light"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="targetNumber" ng-i18next="targetNumber"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="targetNumber" ng-options="item for item in formData.targetNumber" ng-model="roundDetails.targetNumber" ng-disabled="!roundDetails.targetFaceID"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="showArrowNumbers" ng-i18next="showArrowNumbers"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="showArrowNumbers" ng-options="item.value as item.name for item in formData.showArrowNumbers" ng-model="roundDetails.showArrowNumbers" ng-disabled="!roundDetails.targetFaceID"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="targetScale" ng-i18next="targetScale"></label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="targetScale" ng-options="item for item in formData.targetScale" ng-model="roundDetails.targetScale" ng-disabled="!roundDetails.targetFaceID"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="note" ng-i18next="note"></label>
+
+			<div class="form__input-row">
+				<textarea class="form__textarea" name="note" ng-model="roundDetails.note"></textarea>
+			</div>
+		</div>
+
+
+	</form>
+
+	<div class="clearfix">
+		<div class="half alignLeft">
+			<span class="content" style="display:inline-block;padding-top:40px;" ng-show="isSaving">{{'saving' | i18next}}...</span>
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(roundDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
+	</div>
+
+	<p class="clear">&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

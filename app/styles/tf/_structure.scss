@@ -1,0 +1,54 @@
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	-webkit-backface-visibility: hidden;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body, #container, .mb-page {
+	background-color: $backgroundColor;
+}
+
+body {
+	-webkit-touch-callout: none;    /* prevent callout to copy image, etc when tap to hold */
+	//-webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	//-moz-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	@include user-select(none);
+}
+
+input, textarea {
+	@include user-select(auto);
+}
+
+.content {
+	padding-left: $contentPaddingLeft;
+	padding-right: $contentPaddingRight;
+}
+
+.minusContent {
+	margin-left: -$contentPaddingLeft;
+	margin-right: -$contentPaddingRight;
+}
+
+.mobile-view {
+	position: static !important;
+	height: 100% !important;
+}
+
+.wrap {
+	min-height: 100%;
+}
+.wrap > div {
+	margin-top: $navigationBarHeight;
+	height: 100%;
+	overflow: hidden;
+}
+
+.largeHalf {
+	@include respond-to(large) {
+		width: 50%;
+		float: left;
+	}
+}

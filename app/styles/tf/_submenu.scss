@@ -1,0 +1,35 @@
+.submenu {
+	width: 100%;
+	margin: 0 0 15px 0;
+	background-color: lighten($highlightColorMain, 6%);
+	padding: 0;
+	li {
+		padding: 12px 5px;
+		width: auto;
+		text-align: center;
+		display: inline-block;
+		float: left;
+		&.active, &.ng-click-active {
+			background-color: lighten($highlightColorMain, 13%);
+		}
+	}
+}
+.submenu--smallItems {
+	@extend .submenu;
+	li {
+		padding: 18px 16px;
+	}
+}
+.submenu--two {
+	@extend .submenu;
+	li {
+		width: 50%;
+	}
+}
+.submenu--three {
+	@extend .submenu;
+	li {
+		width: 32%;
+		height: 6.5rem;
+	}
+}

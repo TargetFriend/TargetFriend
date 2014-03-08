@@ -1,0 +1,91 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="name">{{'name' | i18next}}</label>
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="name" ng-model="arrowsetDetails.name">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowBrand">{{'arrowBrand' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="arrowBrand" ng-model="arrowsetDetails.arrowBrand">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowLength">{{'arrowLength' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="arrowLength" ng-model="arrowsetDetails.arrowLength">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowMaterial">{{'arrowMaterial' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="arrowMaterial" ng-options="item for item in formData.arrowMaterial" ng-model="arrowsetDetails.arrowMaterial">
+					<option value="">{{'other' | i18next}}</option>
+				</select>
+				<span ng-show="!arrowsetDetails.arrowMaterial">
+					<br><br>
+					<input class="form__input__text" type="text" name="arrowMaterial" ng-model="arrowsetDetailsAlt.arrowMaterial">
+				</span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowShaftWeight">{{'arrowShaftWeight' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="arrowShaftWeight" ng-model="arrowsetDetails.arrowShaftWeight">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowhead">{{'arrowhead' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="arrowhead" ng-model="arrowsetDetails.arrowhead">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="arrowheadWeight">{{'arrowheadWeight' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="arrowheadWeight" ng-model="arrowsetDetails.arrowheadWeight">
+			</div>
+		</div>
+
+	</form>
+
+	<div class="clearfix">
+
+		<div class="half alignLeft">
+			<span class="content" style="display:inline-block;padding-top:40px;" ng-show="isSaving">{{'saving' | i18next}}...</span>
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(arrowsetDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
+
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

@@ -1,0 +1,80 @@
+@mixin user-select($select:none) {
+	-webkit-user-select: $select;
+	-moz-user-select: $select;
+	user-select: $select;
+}
+
+@mixin backface-visibility($visibility:hidden) {
+	-webkit-backface-visibility: $visibility;
+	-moz-backface-visibility: $visibility;
+	backface-visibility: $visibility;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin animation-duration($seconds:1s) {
+	-webkit-animation-duration: $seconds;
+	-moz-animation-duration: $seconds;
+	animation-duration: $seconds;
+}
+
+@mixin animation-timing-function($functionName: ease) {
+	-webkit-animation-timing-function: $functionName;
+	-moz-animation-timing-function: $functionName;
+	animation-timing-function: $functionName;
+}
+
+@mixin animation-name($name) {
+	-webkit-animation-name: $name;
+	-moz-animation-name: $name;
+	animation-name: $name;
+}
+
+@mixin transform($content) {
+	-webkit-transform: $content;
+	-moz-transform: $content;
+	transform: $content;
+}
+
+
+@mixin respond-to($media) {
+	@if $media == small {
+		@media only screen and (min-width: $break-small) { @content; }
+	}
+	@else if $media == medium {
+		@media only screen and (min-width: $break-medium) { @content; }
+	}
+	@else if $media == large {
+		@media only screen and (min-width: $break-large) { @content; }
+	}
+}
+
+// Webkit-style focus
+// ------------------
+@mixin tab-focus() {
+	// Default
+	outline: thin dotted #333;
+	// Webkit
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+// Table columns
+@mixin tableColumns($columnSpan: 1) {
+	float: none; // undo default grid column styles
+	width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) - 16; // 16 is total padding on left and right of table cells
+	margin-left: 0; // undo default grid column styles
+}

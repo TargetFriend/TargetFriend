@@ -1,0 +1,75 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap()"><i class="fa fa-reorder fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap" id="homePage"><div scrolly-scroll bindonce>
+
+	<div class="largeHalf clearfix">
+		<!-- Profile -->
+		<div class="profile clearfix">
+			<div class="profile__inner">
+				<div class="profile__image">
+					<i class="fa fa-user"></i>
+				</div>
+			</div>
+		</div>
+
+		<p class="content" bo-if="firstStart" ng-i18next="[html]firstStart"></p>
+
+		<div class="content" bo-if="!!newVersion">
+			<p ng-i18next="[html]{{newVersion}}"></p>
+			<p ng-i18next="[html]update.oldVersion"></p>
+			<p ng-i18next="[html]update.wontShowAgain"></p>
+		</div>
+
+		<!--<p class="profie__name">{{userName}}</p>-->
+
+		<div class="homeIconPage__column--first ">
+			<div class="profile__button--first" ng-click="go('competitions')">
+				<i class="fa fa-home fa-2x"></i>
+			</div>
+			<div class="profile__button" ng-click="go('distances')">
+				<i class="archery-target-simple archery-2x"></i>
+			</div>
+		</div>
+
+		<div class="homeIconPage__column">
+			<div class="profile__button--first" ng-click="go('bows')">
+				<i class="archery-recurve archery-3x"></i>
+			</div>
+			<div class="profile__button" ng-click="go('arrowsets')">
+				<i class="archery-arrow archery-3x"></i>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="largeHalf clearfix">
+
+		<div class="content clear">
+			<p ng-i18next="[html:i18next]({'firstName': '{{userDetails.firstName}}'})homePage.intro"></p>
+		</div>
+
+		<a ng-click="checkForUpdate()" class="button" ng-i18next="homePage.checkForUpdate"></a>
+
+		<div class="content">
+
+			<small ng-i18next="homePage.downloadInfo"></small>
+
+			<p ng-show="updateContent">{{updateContent}}</p>
+
+		</div>
+
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+	</div>
+
+</div></div>
+
+<div ng-selectmenu></div>

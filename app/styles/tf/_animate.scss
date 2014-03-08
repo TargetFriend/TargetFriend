@@ -1,0 +1,16 @@
+.easeInOut {
+	transition: max-height .7s ease-in-out;
+	-webkit-transition: max-height .7s ease-in-out;
+	-moz-transition: max-height .7s ease-in-out;
+	-o-transition: max-height .7s ease-in-out;
+}
+.infoBox {
+	max-height: 0;
+	overflow: hidden;
+}
+.infoBoxVisible {
+	max-height: 1000px !important;
+}
+.infoBoxVisible--small {
+	max-height: 150px !important;
+}

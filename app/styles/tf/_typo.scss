@@ -1,0 +1,109 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+	color: $baseFontColor;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+p {
+	line-height: $baseLineHeight;
+	font-size: $baseFontSize;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: $linkColor;
+	text-decoration: underline;
+	&:active {
+		color: $linkColorActive;
+	}
+}
+
+em {
+	font-style: italic;
+}
+
+strong, .bold {
+	font-weight: bold;
+}
+
+ul {
+	padding-left: 15px;
+}
+
+.quarter {
+	width: 24%;
+}
+
+.half {
+	width: 49%;
+}
+
+.three-quarters {
+	width: 74%;
+}
+
+.third {
+	width: 33.333%;
+}
+
+.two-thirds {
+	width: 66.666%;
+}
+
+.full {
+	width: 100%;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.alignRight {
+	float: right;
+	min-height: 1px;
+}
+
+.alignLeft {
+	float: left;
+	min-height: 1px;
+}
+
+.alignNone {
+	float: none;
+}
+
+.highlightOne {
+	background-color: $highlightColorMain;
+}
+
+.highlightTwo {
+	background-color: $highlightColorTwo;
+}
+
+.highlightThree {
+	background-color: $highlightColorThree;
+}
+
+.highlightFour {
+	background-color: $highlightColorFour;
+}
+
+.highlightFive {
+	background-color: $highlightColorFive;
+}

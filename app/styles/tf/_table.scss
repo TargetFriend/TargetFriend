@@ -1,0 +1,78 @@
+.table {
+	border: none;
+	margin: 0;
+	width: 100%;
+	border-collapse: separate;
+
+	td {
+		padding: 8px;
+		&.active {
+			background-color: darken($backgroundColor, 5%);
+		}
+	}
+}
+
+.table--bordered {
+
+	@extend .table;
+
+	td {
+		border-top: 1px solid $tableBorderColor;
+		border-right: 1px solid $tableBorderColor;
+		&:last-child {
+			border-right: none;
+		}
+	}
+
+	tr:first-child td {
+		border-top: none;
+	}
+
+}
+
+.table--condensed {
+
+	@extend .table--bordered;
+
+	td {
+		padding: 5px 8px 5px 6px;
+	}
+
+}
+
+.table--striped {
+
+	@extend .table;
+
+	tr {
+		background-color: darken($backgroundColor, 2%);
+		&:nth-child(2n) {
+			background-color: $backgroundColor;
+			.ng-click-active &, .active & {
+				background-color: darken($backgroundColor, 2%);
+			}
+		}
+		.ng-click-active &, .active & {
+			background-color: darken($backgroundColor, 5%);
+		}
+	}
+
+	td {
+		padding: .6rem 10px .6rem 18px;
+		background-color: transparent;
+	}
+
+}
+
+
+.table--fullWidth {
+	@extend .table;
+	width: 100%;
+}
+
+.table--fullWidth--bordered {
+
+	@extend .table--bordered;
+	@extend .table--fullWidth;
+
+}

@@ -1,0 +1,55 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{curEnd + 1}}/{{round.endNumber}}</h1>
+	</div>
+	<div class="navigation-bar__item--group quarter right">
+		<div class="navigation-bar__button--small" ng-class="{active:curEnd==0}" ng-click="changeEnd('prev')"><i class="fa fa-chevron-left fa-2x"></i></div>
+		<div class="navigation-bar__button--small" ng-class="{active:curEnd==round.endNumber-1}" ng-click="changeEnd('next')"><i class="fa fa-chevron-right fa-2x"></i></div>
+	</div>
+</header>
+
+<div class="wrap"><div>
+
+	<table class="pointsTable">
+		<tr class="pointsTable__row">
+			<td class="pointsTable__cell" ng-repeat="arrow in curArrows.data track by $index" ng-click="highlightArrow(arrow)" ng-class="{'active': (highlightedArrow == arrow.id)}" rowspan="2">{{helper.checkCompoundRing(isCompound, arrow.ring)}}<sub ng-if="round.showArrowNumbers">{{arrow.id + 1}}</sub></td>
+			<td class="pointsTable__cell">{{endPoints}}</td>
+		</tr>
+		<tr class="pointsTable__row">
+			<td class="pointsTable__cell">{{roundPoints}}</td>
+		</tr>
+	</table>
+
+	<div id="movingArrowRing" ng-show="curArrowRing"><span>{{curArrowRing}}</span></div>
+
+	<!-- 160px => table height -->
+	<div id="target" style="width:100%;margin-top:160px;" ng-style="{height:targetHeight}" ng-archertarget ng-if="round.targetFaceID"></div>
+
+	<div ng-if="!round.targetFaceID">
+
+		<table class="table--fullWidth--bordered" id="ringTable" ng-if="round.enabled">
+			<tr>
+				<td ng-click="insertRing('M')">M</td>
+				<td ng-click="insertRing(1)">1</td>
+				<td ng-click="insertRing(2)">2</td>
+				<td ng-click="insertRing(3)">3</td>
+			</tr>
+			<tr>
+				<td ng-click="insertRing(4)">4</td>
+				<td ng-click="insertRing(5)">5</td>
+				<td ng-click="insertRing(6)">6</td>
+				<td ng-click="insertRing(7)">7</td>
+			</tr>
+			<tr>
+				<td ng-click="insertRing(8)">8</td>
+				<td ng-click="insertRing(9)">9</td>
+				<td ng-click="insertRing(10)">10</td>
+				<td ng-click="insertRing('X')">X</td>
+			</tr>
+		</table>
+
+	</div>
+</div></div>

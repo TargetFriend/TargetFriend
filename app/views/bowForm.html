@@ -1,0 +1,222 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="name">{{'name' | i18next}}</label>
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="name" ng-model="bowDetails.name">
+			</div>
+		</div>
+
+		<div class="form__row--link" ng-click="go('bow/setMarker/{{bowMarkerID}}');setHelperFormData()">
+			<div class="form__label">
+				{{'bowsightMarker_plural' | i18next}}
+			</div>
+			<div class="form__input-row"><span></span></div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="bowSize">{{'bowSize' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="bowSize" ng-options="item for item in formData.bowSize" ng-model="bowDetails.bowSize">
+					<option value="">{{'other' | i18next}}</option>
+				</select>
+				<span ng-show="!bowDetails.bowSize">
+					<br><br>
+					<input class="form__input__text" type="text" name="bowSize" ng-model="bowDetailsAlt.bowSize">
+				</span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="riser">{{'riser' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="riser" ng-model="bowDetails.riser">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="riserSize">{{'riserSize' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="riserSize" ng-options="item for item in formData.riserSize" ng-model="bowDetails.riserSize">
+					<option value="">{{'other' | i18next}}</option>
+				</select>
+				<span ng-show="!bowDetails.riserSize">
+					<br><br>
+					<input class="form__input__text" type="text" name="riserSize" ng-model="bowDetailsAlt.riserSize">
+				</span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="limbs">{{'limb_plural' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="limbs" ng-model="bowDetails.limbs">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="limbSize">{{'limbSize' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="limbSize" ng-options="item for item in formData.limbSize" ng-model="bowDetails.limbSize">
+					<option value="">{{'other' | i18next}}</option>
+				</select>
+				<span ng-show="!bowDetails.limbSize">
+					<br><br>
+					<input class="form__input__text" type="text" name="limbSize" ng-model="bowDetailsAlt.limbSize">
+				</span>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="braceHeight">{{'braceHeight' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="braceHeight" ng-model="bowDetails.braceHeight">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="tiller">{{'tiller' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="number" name="tiller" ng-model="bowDetails.tiller">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="topTiller">{{'topTiller' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="number" name="topTiller" ng-model="bowDetails.topTiller">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="bottomTiller">{{'bottomTiller' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="number" name="bottomTiller" ng-model="bowDetails.bottomTiller">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="drawWeight">{{'drawWeight' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="drawWeight" ng-model="bowDetails.drawWeight">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="limbWeight">{{'limbWeight' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="limbWeight" ng-model="bowDetails.limbWeight">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="bowsightWindage">{{'bowsightWindage' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="bowsightWindage" ng-model="bowDetails.bowsightWindage">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="stringLength">{{'stringLength' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="stringLength" ng-model="bowDetails.stringLength">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="stringNumber">{{'stringNumber' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="number" name="stringNumber" ng-model="bowDetails.stringNumber">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="stringMaterial">{{'stringMaterial' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="stringMaterial" ng-model="bowDetails.stringMaterial">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="nockingpointPosition">{{'nockingpointPosition' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="nockingpointPosition" ng-model="bowDetails.nockingpointPosition">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="stabiliser">{{'stabiliser' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="stabiliser" ng-model="bowDetails.stabiliser">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="stabiliserLength">{{'stabiliserLength' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="stabiliserLength" ng-model="bowDetails.stabiliserLength">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="button">{{'button' | i18next}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="button" ng-model="bowDetails.button">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="note">{{'note' | i18next}}</label>
+
+			<div class="form__input-row">
+				<textarea class="form__textarea" type="text" name="note" ng-model="bowDetails.note"></textarea>
+			</div>
+		</div>
+
+	</form>
+
+	<div class="clearfix">
+
+		<div class="half alignLeft">
+			<span class="content" style="display:inline-block;padding-top:40px;" ng-show="isSaving">{{'saving' | i18next}}...</span>
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(bowDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
+
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

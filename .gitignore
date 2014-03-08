@@ -1,0 +1,8 @@
+node_modules
+app/bower_components
+dist
+.tmp
+.sass-cache
+*.log
+
+app/scripts/services/data.js

@@ -1,0 +1,62 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+	<div class="navigation-bar__item quarter right" ng-show="rightButton">
+		<div class="navigation-bar__button" ng-click="rightButton.tap()"><i class="fa fa-plus fa-2x"></i></div>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<ul class="list-mobile">
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="!data.competitions">
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" ng-i18next="noCompetitionLoadedHeading"></h2>
+				<p ng-i18next="noCompetitionLoadedDescription"  class="list-mobile__item__text"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain" id="noCompetition" ng-if="data.competitions.length < 1">
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" ng-i18next="noCompetitionHeading"></h2>
+				<p ng-i18next="noCompetitionDescription" class="list-mobile__item__text"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="data.competitions.length">
+			<div class="list-mobile__item__content">
+				<p class="list-mobile__item__text" ng-i18next="[html:i18next]({count:{{data.competitions.length}}})competitionPage.countCompetitionInfo"></p>
+			</div>
+		</li>
+
+		<li bindonce="competitionTags" refresh-on="'refreshItems'" class="clearfix list-mobile__item" ng-repeat="competition in data.competitions | reverse track by $index" ng-click="tap(competition)" ng-taphold="taphold(competition)" ng-class="{active: isActive(competition)}">
+
+			<div class="list-mobile__item__rectangle" bo-class="{'highlightTwo': $index%4==0, 'highlightThree': $index%4==1, 'highlightFour': $index%4==2, 'highlightFive': $index%4==3}">
+
+				<i class="list-mobile__item__rectangle__line"><span class="list-mobile__item__rectangle__above" bo-text="helper.parseDate(competition.dateStart)"></span></i><i class="list-mobile__item__rectangle__circle" bo-text="competition.points"></i>
+
+				<span bo-if="!!competition.roundNumber||competition.roundNumber==0" class="list-mobile__item__rectangle__line__below"><span><span bo-text="competition.roundNumber"></span> <span ng-i18next="[i18next]({count: {{competition.roundsById.length}}})round"></span></span></span>
+
+			</div>
+
+			<div class="list-mobile__item__content">
+				<h2 class="list-mobile__item__heading" bo-text="competition.id+'. '+competition.name"></h2>
+				<p style="margin-top:0;margin-bottom:6px;"><small bo-if="competition.tagIDs">[<span ng-repeat="tag in competition.tagIDs"><span bo-text="competitionTags[tag].name"></span><span bo-if="!$last">,&nbsp; </span></span>]</small></p>
+				<span bo-text="competition.note"></span>
+			</div>
+
+		</li>
+
+	</ul>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>
+
+<div ng-selectmenu></div>

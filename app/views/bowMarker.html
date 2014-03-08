@@ -1,0 +1,44 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-2x" ng-class="leftButton.iconClass"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<div class="content" ng-if="!activeDistances.length">
+		<h2 ng-i18next="noDistanceHeading"></h2>
+		<p ng-i18next="noDistanceDescription"></p>
+	</div>
+
+	<form class="form" ng-if="activeDistances.length > 0">
+
+		<div class="form__row" ng-repeat="distance in activeDistances">
+
+			<label class="form__label" for="distance_{{distance.id}}">{{distance.name}}</label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="distance_{{distance.id}}" ng-model="markersById[distance.id]">
+			</div>
+
+		</div>
+
+	</form>
+
+	<div class="clearfix">
+
+		<div class="half alignLeft">
+			<!-- <span class="content" style="display:inline-block;padding-top:40px;" ng-show="isSaving">{{'saving' | i18next}}...</span> -->
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(markersById)" class="button--large alignRight" ng-i18next="save"></a></div>
+
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

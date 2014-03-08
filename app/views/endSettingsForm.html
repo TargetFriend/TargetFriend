@@ -1,0 +1,42 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="targetScaleMain">{{'endPage.targetScaleMain' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="targetScaleMain" ng-options="item for item in formData.targetScaleMain" ng-model="endDetails.targetScaleMain"></select>
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="targetScaleTop">{{'endPage.targetScaleTop' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="targetScaleTop" ng-options="item for item in formData.targetScaleTop" ng-model="endDetails.targetScaleTop"></select>
+			</div>
+		</div>
+
+	</form>
+
+	<div class="clearfix">
+		<div class="half alignLeft">
+			<p class="content" style="padding-top:25px;">{{savedMsg}}</p>
+		</div>
+
+		<div class="half alignLeft"><a ng-click="save(endDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
+	</div>
+
+	<p>&nbsp;</p>
+
+</div></div>

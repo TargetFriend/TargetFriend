@@ -1,0 +1,82 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{'shootingPaper' | i18next}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<div ng-hide="roundPoints.length" class="content">
+		<p ng-i18next="loading"></p>
+	</div>
+
+	<div ng-if="roundPoints.length">
+
+		<table class="table--fullWidth--bordered shootingPaperTable">
+
+			<tr bindonce ng-repeat="end in ends track by $index" ng-if="!end.isCenterPoint">
+				<td ng-repeat="arrow in end track by $index">{{arrow.ring}}<sub bo-if="round.showArrowNumbers">{{arrow.id}}<sub></td>
+				<td class="bold">{{endPoints[$index]}}</td>
+				<!--<td class="bold" ng-if="$index%2==0" rowspan="2">{{roundPoints[$index]}}</td>-->
+				<td class="bold">{{roundPoints[$index]}}</td>
+			</tr>
+
+		</table>
+
+		<p class="content right" style="font-size:2.2rem;"><strong>{{roundPoints[roundPoints.length - 1]}}</strong> / {{maxPoints}} <span ng-i18next="point_plural"></span></p>
+
+		<h3 class="content">{{'endPage.statistik' | i18next}}</h3>
+
+		<table class="table--fullWidth--bordered" style="text-align: center;">
+			<tr>
+				<td><small>Ring</small></td>
+				<td ng-repeat="(ring, number) in rings track by $index" ng-if="number">{{ring}}</td>
+			</tr>
+			<tr>
+				<td><small>Anzahl</small></td>
+				<td ng-repeat="(ring, number) in rings track by $index" ng-if="number">{{number}}</td>
+			</tr>
+		</table>
+
+		<p class="content">{{'average' | i18next}} &Oslash;: {{roundAverage}} &plusmn; {{roundStandardDeviation}}</p>
+
+		<canvas ng-statistics-pie="{{chart}}"></canvas>
+
+		<div ng-if="isTargetFaceMode">
+			<h3 class="content">{{'shotImage' | i18next}}</h3>
+
+			<div id="paperTarget" style="width:100%;" ng-style="{visibility:(roundPoints.length ? 'visible' : 'hidden'), height: targetHeight}" ng-archertarget></div>
+
+			<ul class="submenu--three clearfix">
+				<li ng-class="{active: curPaperTargetMode == 'default'}" ng-click="showDefaultTarget();" ng-i18next="default"></li>
+				<li ng-class="{active: curPaperTargetMode == 'advancedTargets'}" ng-click="showAdvancedTargets();" ng-if="round.targetNumber != 1" ng-i18next="advancedTargets"></li>
+				<li ng-class="{active: curPaperTargetMode == 'advancedEnds'}" ng-click="showAdvancedEnds();" ng-i18next="advancedEnds"></li>
+			</ul>
+
+			<p class="content">{{'end_plural' | i18next}}:</p>
+			<ul class="submenu--smallItems clearfix">
+				<li ng-repeat="n in [] | range:round.endNumber" ng-class="{active: !paperTargetHiddenEnds[$index]}" ng-click="togglePaperTargetEnd($index);">{{$index + 1}}</li>
+			</ul>
+
+			<p class="content">{{'arrow_plural' | i18next}}:</p>
+			<ul class="submenu--smallItems clearfix">
+				<li ng-repeat="n in [] | range:round.arrowNumber" ng-class="{active: !paperTargetHiddenArrows[$index]}" ng-click="togglePaperTargetArrow($index);">{{$index + 1}}</li>
+			</ul>
+
+			<p class="content" ng-i18next="standardDeviation" ng-show="curPaperTargetMode == 'advancedEnds' || curPaperTargetMode == 'advancedTargets'"></p>
+			<ul class="submenu--two clearfix" ng-show="curPaperTargetMode == 'advancedEnds' || curPaperTargetMode == 'advancedTargets'">
+				<li ng-class="{active: isStandardDeviationVisible}" ng-click="showStandardDeviation(true);" ng-i18next="show"></li>
+				<li ng-class="{active: !isStandardDeviationVisible}" ng-click="showStandardDeviation(false);" ng-i18next="hide"></li>
+			</ul>
+
+			<p class="content" ng-if="roundPoints.length" ng-i18next="[html]shootingPaperTargetNotes"></p>
+		</div>
+
+	</div>
+
+	<p>&nbsp;</p>
+
+</div></div>

@@ -1,0 +1,24 @@
+@include keyframes(pageSlideOutToRight) {
+	0% { @include transform(translate3d(0,0,0)); }
+	100% { @include transform(translate3d(80%,0,0)); }
+}
+@include keyframes(pageSlideInToLeft) {
+	0% { @include transform(translate3d(80%,0,0)); }
+	100% { @include transform(translate3d(0,0,0)); }
+}
+
+.page-out, .page-in {
+	@include animation-duration(.4s);
+	@include animation-timing-function(ease);
+	border-left: 1px solid #aaa;
+}
+
+.page-out {
+	@include animation-name(pageSlideOutToRight);
+	@include transform(translate3d(80%,0,0));
+}
+
+.page-in {
+	@include animation-name(pageSlideInToLeft);
+	@include transform(translate3d(0, 0, 0));
+}

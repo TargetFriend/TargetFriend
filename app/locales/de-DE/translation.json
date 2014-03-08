@@ -1,0 +1,448 @@
+{
+
+	"home": "Startseite",
+	"about": "Über uns",
+	"quit": "Beenden",
+
+	"firstStart": "Du benutzt TargetFriend zum ersten mal. Bitte beachte jedoch, dass dies noch eine Beta, d.h. noch nicht fertige Version ist. Es kann sein, dass zukünftige Versionen nicht kompatibel zu den Daten sind, die du in dieser Version erstellst.<br>Hilfe findest du auf <a ng-click=\"helper.openLink('http://targetfriend.andremeyering.de');\">http://targetfriend.andremeyering.de</a>. Kurze Zusammenfassung:<ul class='normalList'><li>Oben rechts: Menü-Button</li><li>Zum Löschen/Bearbeiten ein Element länger gedrückt halten (>1s)</li><li>Zu den Einstellungen gelangst du durch das Menü.</li></ul><br><em>Diese Nachricht wird beim nächsten Start nicht wieder angezeigt.</em>",
+
+	"update": {
+		"oldVersion": "Deine bisher Installierte Version war {{oldVersion}}. Falls eine Version übersprungen wurde, kannst du den kompletten Changelog unter <a  ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/benutzer/changelog-benutzer/');\">http://targetfriend.andremeyering.de/benutzer/changelog-benutzer/</a> finden.",
+		"wontShowAgain": "<em>Diese Nachricht wird beim nächsten Start nicht wieder angezeigt.</em>",
+
+		"0-8-7": "Dies ist Version 0.8.7 von TargetFriend. Änderungen: <br> - interne Änderungen<br> - die alten Daten sind nicht mehr nutzbar. Bitte die alten Daten löschen."
+	},
+
+	"infoBoxes": {
+		"noItemDescription": "Du hast noch __noItem__ erstellt. Klicke auf das Plus (+) oben rechts, um __aNewItem__ zu erstellen.",
+		"noItemLoadedDescription": "Die __items__ werden momentan noch geladen. Sollte diese Meldung weiterhin (>5s) angezeigt werden, starte die App bitte neu. Sollte dies nicht helfen, wende dich bitte an den Programmierer!"
+	},
+
+	"aboutPage": {
+		"heading": "Über uns",
+		"content_intro": "Hey __firstName__!<br>Danke, dass du diese App nutzt.",
+		"content_main": "Nun, momentan gibt es nur einen Entwickler, darum kannst du dich bei Problemen entweder über das <a ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/kontakt/');\">Kontaktformular</a> auf der Entwicklerseite oder direkt bei <em><a href=\"mailto:info@andremeyering.de\">info@andremeyering.de</a></em> melden! <nobr>;)</nobr>",
+		"content_outro": "Wir wünschen dir weiterhin viel Spaß beim Bogenschießen!",
+
+		"faqHeading": "FAQ",
+		"faqDescription": "Die Antworten auf häufig gestellte Fragen findest du auf <a ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/benutzer/faq-haeufig-gestellte-fragen/');\">http://targetfriend.andremeyering.de/benutzer/faq-haeufig-gestellte-fragen/</a>.",
+
+		"reportProblemHeading": "Problem melden",
+		"reportProblemDescription": "Du hast ein Problem oder einen Fehler gefunden? Wende dich bitte an einen Entwicklerüber über das <a ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/kontakt/');\">Kontakformular</a>.<br>Danke für deine Unterstützung!",
+		"linksHeading": "Links",
+		"linksDescription": "Es gibt einige interessante Seiten im Internet, die ein MUSS für jeden Bogenschützen sind:",
+		"yourLink": "Du hast einen Link, der hier reingehört? Du kannst den Link einem der Entwickler schicken und vielleicht erscheint er hier in der nächsten Version.",
+		"youreDeveloper": "Du bist Entwickler und möchtest mithelfen? Super! Melde dich bitte bei <em>info@andremeyering.de</em>. Alles Weitere wird dann geklärt.",
+		"BTW": "Übrigens, es gibt im <a ng-click=\"helper.openLink('http://www.bogensportinfo.de/board/viewtopic.php?t=16964');\">Bogensportforum</a> auch ein eigenes Thema für diese App."
+	},
+
+	"homePage": {
+		"intro": "Hallo __firstName__!<br>Danke dass du diese App verwendest!",
+		"checkForUpdate": "Update suchen*",
+		"cannotLoad": "Kann die Datei nicht laden!",
+		"cannotLoadDescription": "Leider kann die Datei nicht geladen werden! Bitte überprüfe die Internetverbindung und versuche es erneut.",
+		"unableToLoad": "Laden nicht möglich!",
+		"unableToLoadDescription": "Die Datei kann nicht geladen werden! Ist eine stabile Internetverbindung vorhanden?",
+		"downloadInfo": "*: Es wird eine Internetverbindung benötigt (WLAN,...), welche Kosten verursachen kann. Die herunterzuladene Datei ist wenige Byte groß.",
+		"updateAvailable": "__firstName__, es ist ein neues Update verfügbar. Bitte besuche die Entwicklerseite, um die neueste Version herunterzuladen.",
+		"noUpdateAvailable": "__firstName__, du bist auf dem neuesten Stand! Es ist kein neues Update verfügbar."
+	},
+
+	"competitionPage": {
+		"addHeading": "Neuer Wettkampf",
+		"editHeading": "Wettkampf bearbeiten",
+		"deleteQuestionTitle": "Wettkampf löschen?",
+		"deleteQuestionMsg": "Willst du den Wettkampf wirklich löschen? Dies kann nicht rückgängig gemacht werden!",
+		"countCompetitionInfo": "Du hast <strong>__count__</strong> Wettkampf.",
+		"countCompetitionInfo_plural": "Du hast <strong>__count__</strong> Wettkämpfe."
+	},
+	"competition": "Wettkampf",
+	"competition_plural": "Wettkämpfe",
+	"noCompetition": "Kein Wettkampf",
+	"noCompetitionHeading": "Kein Wettkampf",
+	"noCompetitionDescription": "Du hast noch keinen Wettkampf erstellt. Klicke auf das Plus (+) oben rechts, um einen neuen Wettkampf zu erstellen.",
+	"noCompetitionLoadedHeading": "Wettkämpfe laden...",
+	"noCompetitionLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Wettkämpfe\"})",
+
+	"addTag": "Schlagwort hinzufügen",
+	"noTagLoadedHeading": "Schlagwörter laden...",
+	"noTagLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Schlagwörter\"})",
+
+	"roundPage": {
+		"addHeading": "Neue Runde",
+		"editHeading": "Runde bearbeiten",
+		"deleteQuestionTitle": "Runde löschen?",
+		"deleteQuestionMsg": "Willst du die Runde wirklich löschen? Dies kann nicht rückgängig gemacht werden!",
+		"at_distance": "Auf",
+		"width_arrows": "mit"
+	},
+	"round": "Runde",
+	"round_plural": "Runden",
+	"noRound": "Keine Runde",
+	"noRoundHeading": "Keine Runde vorhanden",
+	"noRoundDescription": "$t(infoBoxes.noItemDescription, {\"noItem\": \"keine Runde\", \"aNewItem\": \"eine neue Runde\"})",
+	"noRoundLoadedHeading": "Runden laden...",
+	"noRoundLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Runden\"})",
+
+	"bowPage": {
+		"addHeading": "Neuer Bogen",
+		"editHeading": "Bogen bearbeiten",
+		"deleteQuestionTitle": "Bogen löschen?",
+		"deleteQuestionMsg": "Willst du den Bogen wirklich löschen? Er wird nur deaktiviert. Du kannst ihn über die Einstellungen später noch wiederherstellen."
+	},
+	"bow": "Bogen",
+	"bow_plural": "Bögen",
+	"myBow": "Mein Bogen",
+	"noBow": "Kein Bogen",
+	"noBowUsage": "Keinen Bogen verwenden",
+	"noBowUsageDescription": "Für die Runde keinen Bogen angeben.",
+	"noBowHeading": "Kein Bogen",
+	"noBowDescription": "Du hast noch keinen Bogen erstellt. Klicke auf das Plus (+) oben rechts, um einen neuen Bogen zu erstellen.",
+	"noBowLoadedHeading": "Bögen laden...",
+	"noBowLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Bögen\"})",
+	"showBow": "Bogen anzeigen",
+
+	"arrowsetPage": {
+		"addHeading": "Neuer Pfeilsatz",
+		"editHeading": "Pfeilsatz bearbeiten",
+		"deleteQuestionTitle": "Pfeilsatz löschen?",
+		"deleteQuestionMsg": "Willst du den Pfeilsatz wirklich löschen? Er wird nur deaktiviert. Du kannst ihn über die Einstellungen später noch wiederherstellen."
+	},
+	"arrowset": "Pfeilsatz",
+	"arrowset_plural": "Pfeilsätze",
+	"myArrowset": "Mein Pfeilsatz",
+	"noArrowset": "Kein Pfeilsatz",
+	"noArrowsetUsage": "Keinen Pfeilsatz verwenden",
+	"noArrowsetUsageDescription": "Für die Runde keinen Pfeilsatz angeben.",
+	"noArrowsetHeading": "Kein Pfeilsatz",
+	"noArrowsetDescription": "Du hast noch keinen Pfeilsatz erstellt. Klicke auf das Plus (+) oben rechts, um einen neuen Pfeilsatz zu erstellen.",
+	"noArrowsetLoadedHeading": "Pfeilsätze laden...",
+	"noArrowsetLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Pfeilsätze\"})",
+	"showArrowset": "Pfeilsatz anzeigen",
+
+	"distancePage": {
+		"addHeading": "Neue Entfernung",
+		"editHeading": "Entfernung bearbeiten",
+		"deleteQuestionTitle": "Entfernung löschen?",
+		"deleteQuestionMsg": "Willst du die Entfernung wirklich löschen? Sie wird nur deaktiviert. Du kannst sie über die Einstellungen später noch wiederherstellen."
+	},
+	"distance": "Entfernung",
+	"distance_plural": "Entfernungen",
+	"noDistance": "Keine Entfernung",
+	"noDistanceHeading": "Keine Entfernung",
+	"noDistanceDescription": "Du hast noch keine Entfernung erstellt. Klicke auf das Plus (+) oben rechts, um eine neue Entfernung zu erstellen.",
+	"noDistanceLoadedHeading": "Entfernungen laden...",
+	"noDistanceLoadedDescription": "$t(infoBoxes.noItemLoadedDescription, {\"items\": \"Entfernungen\"})",
+
+
+	"settingsPage": {
+		"selectItem": "Bitte wähle eine Einstellungs-Gruppe aus! Mit * zeigst du alles an.",
+
+		"enableBows": "Bögen wiederherstellen",
+		"enableBowsSuccessTitle": "Bögen wiederhergestellt!",
+		"enableBowsSuccessMsg": "__number__ $t(bow, {\"count\": __number__}\") erfolgreich wiederhergestellt.",
+
+		"enableArrowsets": "Pfeilsätze wiederherstellen",
+		"enableArrowsetsSuccessTitle": "Pfeilsätze wiederhergestellt!",
+		"enableArrowsetsSuccessMsg": "__number__ $t(arrowset, {\"count\": __number__}\") erfolgreich wiederhergestellt.",
+
+		"enableDistances": "Entfernungen wiederherstellen",
+		"enableDistancesSuccessTitle": "Entfernungen wiederhergestellt!",
+		"enableDistancesSuccessMsg": "__number__ $t(distance, {\"count\": __number__}\") erfolgreich wiederhergestellt.",
+
+		"enableArrowsets": "Pfeilsätze wiederherstellen",
+
+		"defaults": "Standard Einstellungen",
+
+		"competition": {
+			"defaultsDescription": "Setze die Standart-Einstellungen für neue Wettkämpfe fest.",
+			"tagDescription": "Lege die möglichen Schlagwörter für Wettkämpfe fest."
+		},
+		"round": {
+			"defaultsDescription": "Setze die Standart-Einstellungen für neue Runden fest."
+		},
+
+		"end": "Ändere Scheibenzoom, etc.",
+
+		"user": {
+			"title": "Benutzereinstellungen",
+			"description": "Ändere deine eigenen Angaben (Name, usw.)."
+		}
+	},
+
+	"backup": {
+		"heading": "Backup/Datensicherung",
+		"button_create": "Backup jetzt erstellen",
+		"success": {
+			"title": "Backup erstellt!",
+			"msg": "Das Backup wurde erfolgreich erstellt!"
+		}
+	},
+
+	"restoration": {
+		"heading": "Wiederherstellen",
+		"msg": "Daten von einem vorherigen Backup wiederherstellen.",
+		"button_restore": "Daten wiederherstellen!",
+		"foundEntries": {
+			"msg": "Es wurde <strong>__count__</strong> Backup gefunden:",
+			"msg_plural": "Es wurden <strong>__count__</strong> Backups gefunden:"
+		},
+		"confirm": {
+			"title": "Wirklich Backup wiederherstellen?",
+			"msg": "Das Backup stammt von Version __oldVersion__. Du benutzt Version __newVersion__. Dieser Schritt kann nicht rückgängig gemacht werden!"
+		},
+		"success": {
+			"title": "Daten wiederhergestellt!",
+			"msg": "Die Daten wurden erfolgreich wiederhergestellt! Bitte starte die App neu, damit alle Daten richtig eingelesen werden."
+		}
+	},
+
+	"dropbox": {
+		"useDropboxTitle": "Dropbox für Backup benutzen?",
+		"warningBeta": "Achtung! Dropbox wird noch nicht komplett unterstützt. Es kann zu schweren Fehlern kommen!"
+	},
+
+	"helpPage": {
+		"heading": "Hilfe",
+		"backToOverview": "Zurück zur Übersicht",
+		"shootingPaper": {
+			"heading": "Hilfe - Schießzettel",
+			"intro": "Zum Schießzettel einer Runde gelangst du durch das Seitenmenü, wenn du es in einer Runde öffnest.",
+			"tableInfo": "Auf dieser Seite hast du dann den Schießzettel, wie du ihn auch vom Aufschreiben mit Stift kennst. Die Ringe sind nach ihrem Wert in einer Passe sortiert. Erst kommen die hohen Ringe, dann die niedrigen.",
+
+			"statisticsHeading": "Statistiken",
+			"statisticsInfo": "Neben dem Schießzettel wird dir auch eine Tabelle angezeigt, in der die Anzahl der jeweils geschossenen Ringe angezeigt wird.<br><br>Darunter wird die Tabelle als Kreisdiagramm veranschaulicht.",
+
+			"targetHeading": "Scheibe - Übersicht",
+			"targetInfo": "Hast du eine Auflage ausgewählt, so wird dir zudem noch eine Übersichtsscheibe angezeigt. Auf dieser sind standardmäßig alle Pfeile zu sehen. Du hast in der Standartansicht die Möglichkeit, einzelne Passen, aber auch einzelne Pfeile aus- und einzublenden.",
+
+			"advancedEndsHeading": "Erweitert - Passen",
+			"advancedEndsInfo": "Neben der Standardansicht gibt es auch noch die erweiterten Ansichten. In der erweiterten Ansicht für Passen wird dir der Mittelpunkt und die Standardabweichung jeder einzelnen Passe inklusive Passennummer auf einer Scheibe angezeigt. Falls du auf mehrere Scheiben geschossen hast, so werden alle Pfeile zur besseren Übersichtlichkeit nun auf einer enzigen Scheibe angezeigt.<br><br>Die <em>Standartabweichung</em> kannst du als Streuung ansehen. Je kleiner die dargestellt Ellipse ist, umso besser sind deine Pfeile gruppiert.<br><br>Du hast die Möglichkeit, die Standardabweichung anzublenden.",
+
+			"advancedTargetsHeading": "Erweitert - Scheiben",
+			"advancedTargetsInfo": "Die erweiterte Ansicht für Scheiben kannst du nur auswählen, wenn du mit mehreren Scheiben geschossen hast. Der Unterschied zu der Ansicht für Passen ist, dass die Mittelpunkte und Standardabweichungen sich nun auf die einzelnen Scheiben beziehen. So ist es möglich zu erfassen, ob man auf einer Scheibe schlechter schießt, als auf einer anderen.",
+
+			"otherHeading": "Sonstiges",
+			"otherInfo": "Hinweis: Zur Berechnung von Mittelpunkt und Standardabweichung werden nur die Pfeile verwendet, die <strong>auf</strong> der Scheibe sind. M's werden nicht beachtet.<br><br><strong>Tipp:</strong> Über das Seitenmenü gelangst du direkt zu den Schießzetteln der anderen Runden."
+		}
+	},
+
+
+	"sidebar": {
+		"other": "Sonstiges"
+	},
+
+
+	"end": "Passe",
+	"end_plural": "Passen",
+
+	"endPage": {
+		"endNumber": "Passe __count__",
+		"round": "Runde __count__",
+		"statistik": "Statistik",
+		"targetScaleMain": "Zoom der Haupt Scheibe",
+		"targetScaleTop": "Zoom der Fadenkreuz Scheibe"
+	},
+
+	"training": "Training",
+
+
+	"arrow": "Pfeil",
+	"arrow_plural": "Pfeile",
+	"arrowset": "Pfeilsatz",
+	"arrowset_plural": "Pfeilsätze",
+	"arrownumber": "Pfeilnummer",
+	"arrownumber_plural": "Pfeilnummern",
+	"showArrowNumbers": "Pfeilnummern anzeigen",
+	"arrowcolor": "Pfeilfarbe",
+	"arrowRadius": "Pfeilradius",
+	"arrowOpacity": "Pfeiltransparenz",
+
+	"targetFace": "Auflage",
+	"targetFace_plural": "Auflagen",
+	"noTargetFaceUsage": "Keine Auflage verwenden",
+	"noTargetFaceUsageDescription": "Keine Auflage verwenden und nur die Ringe angeben.",
+	"noTargetFaceUsage_info": "Keine Auflage wird verwendet",
+	"targetNumber": "Auflagenanzahl",
+	"targetScale": "Scale",
+
+	"pattern": "Vorlage",
+	"pattern_plural": "Vorlagen",
+	"noPattern": "Keine Vorlage",
+	"noPatternUsage": "Keine Vorlage verwenden",
+	"noPatternUsageDescription": "Keine Vorlage für den Wettkampf verwenden und die Runden selbst erstellen.",
+	"noPatternHeading": "Keine Vorlage vorhanden!",
+	"noPatternDescription": "Du hast noch keine Vorlage erstellt. Klicke auf das Plus (+) oben rechts, um eine neue Vorlage zu erstellen.",
+	"noPatternLoadedHeading": "Vorlagen laden...",
+	"noPatternLoadedDescription": "Die Vorlagen werden momentan noch geladen. Sollte diese Meldung weiterhin (>5s) angezeigt werden, starte die App bitte neu. Sollte dies nicht helfen, wende dich bitte an den Programmierer!",
+
+	"setting": "Einstellung",
+	"setting_plural": "Einstellungen",
+
+	"date": "Datum",
+
+	"January": "Januar",
+	"February": "Februar",
+	"March": "März",
+	"April": "April",
+	"May": "May",
+	"June": "Juni",
+	"July": "Juli",
+	"August": "August",
+	"September": "September",
+	"October": "Oktober",
+	"November": "November",
+	"December": "Dezember",
+
+
+	"weather": "Wetter",
+	"storm": "Sturm",
+	"rain": "Regen",
+	"cloudy": "bewölkt",
+	"sunny": "sonnig",
+	"windspeed": "Windstärke",
+	"winddirection": "Windrichtung",
+	"breeze": "Luftzug",
+	"noWind": "Kein Wind",
+	"windy": "windig",
+	"strongWind": "starker Wind",
+	"stormy": "stürmisch",
+	"tailwind": "Rückenwind",
+	"againstwind": "Gegenwind",
+	"crosswind": "Seitenwind",
+	"crosswindLeft": "Seitenwind (von links)",
+	"crosswindRight": "Seitenwind (von rechts)",
+	"light": "Licht",
+	"blinding": "blendend",
+	"blindingMildly": "blendend - leicht",
+	"blindingStrong": "blendend - stark",
+
+
+	"bowSize": "Bogengröße",
+	"riser": "Mittelteil",
+	"riserSize": "Mittelteilgröße",
+	"limb": "Wurfarm",
+	"limb_plural": "Wurfarme",
+	"limbSize": "Wurfarmgröße",
+	"limbWeight": "Wurfarmgewicht",
+	"braceHeight": "Standhöhe",
+	"tiller": "Tiller",
+	"topTiller": "oberer Tiller",
+	"bottomTiller": "unterer Tiller",
+	"drawWeight": "Zuggewicht",
+	"bowsightElevation": "Visierhöhe",
+	"bowsightWindage": "Viserseite",
+	"bowsightMarker": "Visiermarke",
+	"bowsightMarker_plural": "Visiermarken",
+	"stringNumber": "Stränge",
+	"stringLength": "Sehnenlänge",
+	"stringMaterial": "Sehnenmaterial",
+	"nockingpointPosition": "Nockpunktposition",
+	"stabiliser": "Stabilisator",
+	"stabiliserLength": "Stabilisatorlänge",
+	"button": "Button",
+
+	"arrowBrand": "Pfeilmarke",
+	"arrowLength": "Pfeillänge",
+	"arrowMaterial": "Material",
+	"arrowShaftWeight": "Schaft Gewicht",
+	"arrowhead": "Pfeilspitze",
+	"arrowheadWeight": "Pfeilspitze Gewicht",
+
+	"carbon": "Carbon",
+	"aluminium": "Aluminium",
+	"wood": "Holz",
+
+
+
+	"shootingPaper": "Schießzettel",
+	"multipleShootingPaper": "Mehrfach-Schießzettel",
+	"shootingPaperTargetNotes": "<p>schwarz: geschossene Pfeile<br>Es werden nur Treffer auf der Auflage zur Ermittlung des Mittelpunktes genutzt. \"M's\" werden nicht beachtet.</small></p>",
+	"shotImage": "Schussbild",
+	"advancedEnds": "Erweitert - Passen",
+	"advancedTargets": "Erweitert - Auflagen",
+
+
+	"no": "Nein",
+	"yes": "Ja",
+	"add": "Hinzufügen",
+	"new": "Neu",
+	"edit": "Bearbeiten",
+	"delete": "Löschen",
+	"save": "Speichern",
+	"saved": "gespeichert",
+	"saving": "speichern",
+	"back": "Zurück",
+	"disable": "deaktivieren",
+	"disabled": "deaktiviert",
+	"enable": "aktivieren",
+	"enabled": "aktiviert",
+	"other": "anderes",
+	"show": "anzeigen",
+	"hide": "ausblenden",
+
+	"today": "Heute",
+	"import": "Import",
+	"export": "Export",
+
+	"name": "Name",
+	"firstName": "Vorname",
+	"lastName": "Nachname",
+	"gender": "Geschlecht",
+	"male": "männlich",
+	"female": "weiblich",
+	"note": "Notiz",
+	"average": "Durchschnitt",
+	"outdoor": "Outdoor",
+	"indoor": "Indoor",
+	"eachWith": "je",
+	"compound": "Compound",
+	"recurve": "Recurve",
+	"unit": "Einheit",
+	"overview": "Übersicht",
+	"ring": "Ring",
+	"number": "Nummer",
+	"tag": "Schlagwort",
+	"tag_plural": "Schlagwörter",
+
+
+	"red": "rot",
+	"blue": "blau",
+	"yellow": "gelb",
+	"green": "grün",
+
+	"menu": "Menü",
+	"cancel": "Abbrechen",
+	"ok": "Ok",
+	"default": "Standart",
+
+	"standardDeviation": "Standartabweichung",
+
+	"help": "Hilfe",
+	"info": "Info",
+
+	"user": "Benutzer",
+
+	"pointWithNumber": "1 Punkt",
+	"pointWithNumber_plural": "__count__ Punkte",
+
+	"point": "Punkt",
+	"point_plural": "Punkte",
+
+	"loading": "Laden...",
+
+	"notSpecific": "Nicht spezifisch",
+
+	"wa_competition_outdoor_70m": "WA Meisterschaft - 2x70m",
+	"wa_competition_indoor_18m_recurve_spot": "WA Halle - 2x18m - Recurve Spot",
+	"wa_competition_indoor_18m_recurve_40cm": "WA Halle - 2x18m - Recurve 40cm",
+	"wa_star_men": "WA Stern - Männer",
+	"wa_star_women": "WA Stern - Frauen",
+	"wa_competition_indoor_25m_recurve_60cm": "WA Halle - 2x25m - Recurve",
+	"wa_competition_indoor_25m_compound_60cm_spot": "WA Halle - 2x25m - Compound",
+	"wa_outdoor_30m_80cm": "WA 30m Turnier",
+	"wa_outdoor_compound_30m_80cm_spot_5": "WA 50m Compound",
+
+	"WA - Field": "WA - Feld"
+
+}

@@ -1,0 +1,167 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<div class="icon-menu clearfix">
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'user'" ng-class="{'active': showSettingsPart == 'user'}"><i class="fa fa-user fa-2x"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'c_r_e'" ng-class="{'active': showSettingsPart == 'c_r_e'}"><i class="fa fa-folder fa-2x"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'b_a_d'" ng-class="{'active': showSettingsPart == 'b_a_d'}"><i class="archery-recurve"></i> <i class="archery-arrow"></i> <i class="archery-target-simple"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'backup'" ng-class="{'active': showSettingsPart == 'backup'}"><i class="fa fa-save"></i> <i class="fa fa-undo"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'dropbox'" ng-class="{'active': showSettingsPart == 'dropbox'}"><i class="fa fa-dropbox fa-2x"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'all'" ng-class="{'active': showSettingsPart == 'all'}"><i class="fa fa-asterisk fa-2x"></i></a>
+		<a class="icon-menu__item" ng-click="showSettingsPart = 'none'" ng-class="{'active': showSettingsPart == 'none'}"><i class="fa fa-ban fa-2x"></i></a>
+	</div>
+
+	<div class="clearfix" ng-show="useDropbox">
+		<div class="half alignLeft" style="padding:30px 10px 10px 40px">
+			Dropbox
+		</div>
+		<div class="half alignLeft">
+			<a ng-click="dropboxToggle();" class="button" ng-show="!dropboxLoggedIn && dropboxLoggedIn != null">LogIn</a>
+			<a ng-click="dropboxToggle();" class="button" ng-show="dropboxLoggedIn && dropboxLoggedIn != null">LogOut</a>
+			<a ng-click="dropboxInit();" class="button" ng-show="dropboxLoggedIn == null">Verbinden</a>
+		</div>
+	</div>
+
+	<p class="content easeInOut infoBox" ng-class="{'infoBoxVisible--small': showSettingsPart == 'none'}">{{'settingsPage.selectItem' | i18next}}</p>
+
+	<div class="easeInOut infoBox" ng-class="{'infoBoxVisible': showSettingsPart == 'user' || showSettingsPart == 'all'}" class="animation_toggle">
+		<h2 class="content"><i class="fa fa-user"></i> {{'user' | i18next}}</h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix" ng-click="$navigate.go('settings/user')">
+				<div class="list-mobile__item__content">
+					<p class="bold" ng-i18next="settingsPage.user.title"></p>
+					<p ng-i18next="settingsPage.user.description"></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="easeInOut infoBox" ng-class="{'infoBoxVisible': showSettingsPart == 'c_r_e' || showSettingsPart == 'all'}">
+
+		<h2 class="content" ng-i18next="round_plural"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix" ng-click="$navigate.go('settings/roundDefaults')">
+				<div class="list-mobile__item__content">
+					<p class="bold" ng-i18next="settingsPage.defaults"></p>
+					<p ng-i18next="settingsPage.round.defaultsDescription"></p>
+				</div>
+			</li>
+		</ul>
+
+		<h2 class="content" ng-i18next="end_plural"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix" ng-click="$navigate.go('settings/end')">
+				<div class="list-mobile__item__content">
+					<p ng-i18next="settingsPage.end"></p>
+				</div>
+			</li>
+		</ul>
+
+		<h2 class="content" ng-i18next="competition_plural"></h2>
+
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix" ng-click="$navigate.go('settings/competitionDefaults')">
+				<div class="list-mobile__item__content">
+					<p class="bold" ng-i18next="settingsPage.defaults"></p>
+					<p ng-i18next="settingsPage.competition.defaultsDescription"></p>
+				</div>
+			</li>
+			<li class="list-mobile__item clearfix" ng-click="$navigate.go('settings/competitionTags')">
+				<div class="list-mobile__item__content">
+					<p class="bold" ng-i18next="tag_plural"></p>
+					<p ng-i18next="settingsPage.competition.tagDescription"></p>
+				</div>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="easeInOut infoBox" ng-class="{'infoBoxVisible': showSettingsPart == 'b_a_d' || showSettingsPart == 'all'}">
+		<h2 class="content" ng-i18next="bow_plural"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<a class="button--large" ng-click="enable('bows')" ng-i18next="settingsPage.enableBows"></a>
+				</div>
+			</li>
+		</ul>
+
+		<h2 class="content" ng-i18next="arrowset_plural"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<a class="button--large" ng-click="enable('arrowsets')" ng-i18next="settingsPage.enableArrowsets"></a>
+				</div>
+			</li>
+		</ul>
+
+		<h2 class="content" ng-i18next="distance_plural"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<a class="button--large" ng-click="enable('distances')" ng-i18next="settingsPage.enableDistances"></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="easeInOut infoBox" ng-class="{'infoBoxVisible': showSettingsPart == 'backup' || showSettingsPart == 'all'}">
+		<h2 class="content" ng-i18next="backup.heading"></h2>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<a class="button--large" ng-click="createBackup()" ng-i18next="backup.button_create"></a>
+				</div>
+			</li>
+		</ul>
+
+		<h2 class="content" ng-i18next="restoration.heading"></h2>
+		<p class="content" ng-i18next="restoration.msg"></p>
+
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<a class="button--large" ng-click="selectBackup()" ng-i18next="restoration.button_restore"></a>
+				</div>
+			</li>
+		</ul>
+
+		<div ng-show="backups.length > 0">
+			<p class="content" ng-i18next="[html:i18next]({{i18nextBackupOptions}})restoration.foundEntries.msg"></p>
+			<ul class="list-mobile">
+				<li class="list-mobile__item clearfix" ng-repeat="entry in backups" ng-click="restoreFromBackup(entry)">
+					<div class="list-mobile__item__content">
+						<h3 class="list-mobile__item__heading">{{entry.name}}</h3>
+						<p class="list-mobile__item__text">{{entry.fullPath}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="easeInOut infoBox" ng-class="{'infoBoxVisible': showSettingsPart == 'dropbox' || showSettingsPart == 'all'}">
+		<h2 class="content"><i class="fa fa-dropbox"></i> Dropbox</h3>
+		<ul class="list-mobile">
+			<li class="list-mobile__item clearfix">
+				<div class="list-mobile__item__content">
+					<p><strong ng-i18next="dropbox.useDropboxTitle"></strong></p>
+					<input type="checkbox" ng-model="useDropbox" ng-checked="useDropbox" ng-change="saveDropboxState();">
+					<p class="list-mobile__item__text" ng-i18next="dropbox.warningBeta"></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

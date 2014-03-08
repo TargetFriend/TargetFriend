@@ -1,0 +1,7 @@
+<div class="selectMenu" ng-click="clickItem()">
+	<ul>
+		<li data-id="edit" ng-i18next="edit" ng-click="clickItem('edit')">Edit</li>
+		<li data-id="delete" ng-i18next="delete" ng-click="clickItem('delete')">Delete</li>
+		<li ng-repeat="item in items" data-id="{{item.id}}" ng-click="clickItem(item.id)">{{item.name}}</li>
+	</ul>
+</div>

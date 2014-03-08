@@ -1,0 +1,36 @@
+.icon-menu {
+	width: 100%;
+	border-top: 1px solid $iconMenuItemBorderColor;
+}
+
+.icon-menu__item {
+	text-decoration: none;
+	display: block;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 1px solid $iconMenuItemBorderColor;
+	border-bottom: 1px solid $iconMenuItemBorderColor;
+	> i {
+		line-height: $iconMenuItemHeight;
+	}
+	&.ng-click-active, &.active {
+		background-color: $iconMenuBackgroundActive;
+	}
+
+	//For small devices
+	width: 33.3%;
+
+	@include respond-to(small) {
+		width: 25%;
+	};
+
+	@include respond-to(medium) {
+		width: 20%;
+	};
+
+	@include respond-to(large) {
+		width: 10%;
+	};
+
+}

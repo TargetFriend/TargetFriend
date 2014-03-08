@@ -1,0 +1,81 @@
+//TargetFriend is mobile-first (~320px)
+$break-small: 400px;
+$break-medium: 460px;
+$break-large: 980px;
+
+//Colors
+//https://kuler.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=0&name=My%20Kuler%20Theme&mode=rgb&rgbvalues=0.405112066955136,0.7462745098039216,0.3894443399721178,0.8352941176470589,0.7714412900688105,0.28167628033801545,0.8941176470588236,0.521094281650666,0.21254483776590294,0.9841176470588235,0.2905081164407678,0.5612588059966991,0.507052696325768,0.38923787355521205,0.8207843137254903&swatchOrder=0,1,2,3,4
+$highlightColorMain:  #E48536; //organge
+$highlightColorTwo:   #67BE63; //green
+$highlightColorThree: #D5C548; //yellow
+$highlightColorFour:  #FB4A8F; //pink
+$highlightColorFive:  #8163D1; //lila
+
+$white: #fff;
+$purple: #993D6C;
+$green: #1A9928;
+$red: #99251A;
+$blue: #2F3599;
+$grey: #ccc;
+$greyLightest: #f2f2f2;
+
+$backgroundColor: $greyLightest;
+
+//Fonts
+$sansFontFamily: "Droid Sans", Helvetica, Arial, sans-serif;
+$serifFontFamily: Georgia, "Times New Roman", Times, serif;
+$baseFontFamily: $sansFontFamily;
+$altFontFamily: $serifFontFamily;
+$baseFontColor: #333;
+$baseFontSize: 1.5rem;
+$baseLineHeight: 1.3;
+
+//Content/Structure
+$contentPaddingLeft: 20px;
+$contentPaddingRight: 20px;
+
+//Links
+$linkColor: $baseFontColor;
+$linkColorHover: darken($linkColor, 15%);
+$linkColorActive: darken($blue, 15%);
+
+//Navigation
+$navigationBarHeight: 6.5rem;
+$navigationBarBackgroundColor: $highlightColorMain;
+$navigationBarBackgroundColorActive: darken($navigationBarBackgroundColor, 10%);
+$navigationBarFontColor: $white;
+$navigationBarTitleFontSize: $baseFontSize + .6rem;
+
+//Sidebar
+$sidebarWidth: 265px;
+$sidebarFontColor: $baseFontColor;
+$sidebarFontColorActive: #fff;
+$sidebarBackground: lighten($highlightColorMain, 22%);
+$sidebarBackgroundActive: darken($sidebarBackground, 12%);
+$sidebarBackgroundClick: lighten($sidebarBackground, 15%);
+$sidebarListDividerBackground: $highlightColorMain;
+$sidebarIconColor: saturate($highlightColorMain, 100%);
+
+//Profile/Home page
+$profileBackgroundColor: lighten($highlightColorMain, 10%);
+$profileImageBackground: $highlightColorMain;
+$profileCircleHeight: 360px;
+
+//Tables
+$tableBorderColor: #666;
+
+//Form
+$formRowBackground: $backgroundColor;
+$formRowBorderColor: darken($backgroundColor, 10%);
+$formInputBackground: #e2e2e2;
+$formInputBackgroundFocus: #fff;
+$formSelectHeight: 4.5rem;
+$formSelectWidth: 100%;
+$formSelectMaxWidth: 230px;
+$formLabelWidth_default: 38%;
+$formInputWidth_default: 60%;
+
+//Icon Menu
+$iconMenuItemHeight: 5rem;
+$iconMenuBackgroundActive: lighten($highlightColorMain, 9%);
+$iconMenuItemBorderColor: $grey;

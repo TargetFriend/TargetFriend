@@ -1,0 +1,53 @@
+@import "compass";
+
+// Font Awesome 3.2.1
+// Please don't change anything in the sass files.
+@import "font-awesome/variables";
+$fa-font-path: "fonts";
+@import "font-awesome/variables";
+@import "font-awesome/mixins";
+@import "font-awesome/path";
+@import "font-awesome/core";
+@import "font-awesome/larger";
+@import "font-awesome/fixed-width";
+@import "font-awesome/list";
+@import "font-awesome/bordered-pulled";
+@import "font-awesome/spinning";
+@import "font-awesome/rotated-flipped";
+@import "font-awesome/stacked";
+@import "font-awesome/icons";
+
+
+@import "ArcheryIcons/ArcheryIcons";
+
+.archery-2x { font-size: 2em; }
+.archery-3x { font-size: 3em; }
+.archery-4x { font-size: 4em; }
+.archery-5x { font-size: 5em; }
+
+
+@import "tf/variables";
+@import "tf/mixins";
+@import "tf/norm";
+@import "tf/cf";
+@import "tf/form";
+@import "tf/table";
+@import "tf/list";
+@import "tf/extra";
+@import "tf/sidebar";
+@import "tf/button";
+@import "tf/selectmenu";
+@import "tf/submenu";
+@import "tf/iconMenu";
+@import "tf/pageAnimation";
+@import "tf/navigation-bar";
+@import "tf/profile";
+@import "tf/structure";
+@import "tf/typo";
+@import "tf/animate";
+
+@import "pages/endPage";
+
+.mb-page {
+	overflow:hidden;
+}

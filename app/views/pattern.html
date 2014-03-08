@@ -1,0 +1,77 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-2x" ng-class="leftButton.iconClass"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+	<div class="navigation-bar__item quarter right" ng-show="rightButton">
+		<div class="navigation-bar__button" ng-click="rightButton.tap()"><i class="fa fa-plus fa-2x"></i></div>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<ul class="list-mobile">
+
+		<li class="clearfix list-mobile__item" ng-if="!data.pattern">
+			<div class="list-mobile__item__content">
+				<h2 ng-i18next="noPatternLoadedHeading"></h2>
+				<p ng-i18next="noPatternLoadedDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item" ng-if="!data.pattern.length">
+			<div class="list-mobile__item__content">
+				<h2 ng-i18next="noPatternHeading"></h2>
+				<p ng-i18next="noPatternDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item" ng-hide="pattern.disabled" ng-click="tap(null)">
+			<div class="list-mobile__item__content">
+				<h2>{{'noPatternUsage' | i18next}}</h2>
+				<p>{{'noPatternUsageDescription' | i18next}}</p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item" ng-repeat="pattern in data.pattern track by $index" ng-click="tap(pattern)" ng-class="{active: isActive(pattern)}" ng-hide="pattern.disabled">
+
+			<h2 class="list-mobile__item__content--full-width">{{pattern.id}} {{pattern.name|i18next}}</h2>
+
+			<div ng-repeat="round in pattern.rounds track by $index" class="list-mobile__item__content half">
+
+				<h3>{{$index + 1}}. {{round.name}}</h3>
+
+				<p>
+					{{round.endNumber}} {{'end_plural' | i18next}} {{'eachWith' | i18next}} {{round.arrowNumber}} {{'arrow_plural' | i18next}}
+				</p>
+
+				<p>
+					<span ng-switch on="round.outdoor">
+						<span ng-switch-when="0" ng-i18next="indoor">Indoor</span>
+						<span ng-switch-when="1" ng-i18next="outdoor">Outdoor</span>
+					</span>
+
+					<span ng-if="round.compound"> - {{'compound' | i18next}}</span>
+				</p>
+
+				<p ng-if="round.distanceID">
+					{{'distance' | i18next}}:&nbsp;
+					{{data.distancesById[round.distanceID].name}}
+					<em ng-if="data.distancesById[round.distanceID].note"> ({{data.distancesById[round.distanceID].note}})</em>
+				</p>
+
+				<p ng-if="round.targetFaceID">
+					{{'targetFace' | i18next}}: {{data.targetFacesById[round.targetFaceID].name | i18next}}
+				</p>
+
+				<p>&nbsp;</p>
+
+			</div>
+
+		</li>
+	</ul>
+</div></div>
+
+<div ng-selectmenu></div>

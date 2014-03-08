@@ -1,0 +1,104 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+	<div class="navigation-bar__item quarter right" ng-show="rightButton">
+		<div class="navigation-bar__button" ng-click="rightButton.tap()"><i class="fa fa-plus fa-2x"></i></div>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<ul class="list-mobile">
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="competitionDetails">
+			<div class="list-mobile__item__content">
+				<p class="list-mobile__item__text">{{competitionDetails.name}}</p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="!curRounds">
+			<div class="list-mobile__item__content">
+				<h2  class="list-mobile__item__heading" ng-i18next="noRoundLoadedHeading"></h2>
+				<p class="list-mobile__item__text" ng-i18next="noRoundLoadedDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item--border highlightMain" ng-if="curRounds.length < 1">
+			<div class="list-mobile__item__content">
+				<h2  class="list-mobile__item__heading" ng-i18next="noRoundHeading"></h2>
+				<p class="list-mobile__item__text" ng-i18next="noRoundDescription"></p>
+			</div>
+		</li>
+
+		<li class="clearfix list-mobile__item" ng-repeat="round in curRounds track by $index" ng-if="round" ng-click="tap(round)" ng-taphold="taphold(round)" ng-class="{active: isActive(round)}" id="round_{{$index}}" bindonce>
+
+			<div class="list-mobile__item__rectangle" bo-class="{'highlightTwo': $index%4==0, 'highlightThree': $index%4==1, 'highlightFour': $index%4==2, 'highlightFive': $index%4==3}">
+
+				<i class="list-mobile__item__rectangle__line"><span class="list-mobile__item__rectangle__above">{{helper.parseDate(round.dateStart)}}</span></i><i class="list-mobile__item__rectangle__circle">{{round.points}}</i>
+				<span class="list-mobile__item__rectangle__line__below">
+					<span ng-switch on="round.outdoor">
+						<span ng-switch-when="0" ng-i18next="indoor">Indoor</span>
+						<span ng-switch-when="1" ng-i18next="outdoor">Outdoor</span>
+					</span>
+					<span class="line" bo-if="round.compound">{{'compound' | i18next}}</span>
+				</span>
+
+			</div>
+
+			<div class="list-mobile__item__content">
+
+				<h2 class="list-mobile__item__heading" bo-if="round.name">{{round.id}}. {{round.name}}</h2>
+
+				<p>
+					<i class="fa" ng-hide="!round.weather" bo-class="{'fa-umbrella': round.weather==$i18next('rain'), 'fa-sun-o': round.weather==$i18next('sunny'), 'fa-cloud': round.weather==$i18next('cloudy')}"></i>
+
+					{{'roundPage.at_distance' | i18next}} {{data.distancesById[round.distanceID].name}} {{'roundPage.width_arrows' | i18next}} {{round.endNumber}} {{'end_plural' | i18next}} {{'eachWith' | i18next}} {{round.arrowNumber}} {{'arrow_plural' | i18next}}
+
+				</p>
+
+				<p bo-if="round.targetFaceID"><i class="archery-target-simple"></i> <span ng-i18next="{{data.targetFacesById[round.targetFaceID].name}}"></span></p>
+
+				<p bo-if="round.arrowsetID">
+					<i class="archery-arrow"></i> {{data.arrowsetsById[round.arrowsetID].name}}
+					<em bo-if="data.arrowsetsById[round.arrowsetID].note">({{data.arrowsetsById[round.arrowsetID].note}})</em>
+				</p>
+
+				<p bo-if="round.bowID">
+
+					<i class="archery-recurve"></i> {{data.bowsById[round.bowID].name}}
+
+					<div bo-if="markers[round.id]">
+						{{'bowsightMarker' | i18next }}: {{markers[round.id].position}}
+					</div>
+
+					<em bo-if="data.bowsById[round.bowID].note">({{data.bowsById[round.bowID].note}})</em>
+
+				</p>
+
+			</div>
+
+			<div><table class="table--striped">
+				<tr bindonce ng-repeat="key in ['weather', 'windspeed', 'winddirection', 'light']" bo-if="round[key]">
+					<td ng-i18next="{{key}}"></td>
+					<td>{{round[key]}}</td>
+				</tr>
+			</table></div>
+
+			<div class="list-mobile__item__content" bo-if="round.note">
+				<p>{{round.note}}</p>
+			</div>
+
+		</li>
+	</ul>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>
+
+<div ng-selectmenu></div>

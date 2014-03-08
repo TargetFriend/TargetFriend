@@ -1,0 +1,37 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-2x" ng-class="leftButton.iconClass"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+	<div class="content">
+		<h2 ng-i18next="info"></h2>
+
+		<p ng-repeat="content in contents track by $index" ng-i18next="[html:i18next]({{userDetails}}){{content}}"></p>
+
+		<h2 ng-i18next="aboutPage.faqHeading"></h2>
+		<p ng-i18next="[html]aboutPage.faqDescription"></p>
+
+		<h2 ng-i18next="aboutPage.reportProblemHeading"></h2>
+		<p ng-i18next="[html]aboutPage.reportProblemDescription"></p>
+
+		<h2 ng-i18next="aboutPage.linksHeading"></h2>
+		<p ng-i18next="aboutPage.linksDescription"></p>
+		<ul style="word-break: break-all;">
+			<li ng-repeat="link in links">
+				<a ng-click="open(link)">{{link}}</a>
+			</li>
+		</ul>
+		<p ng-i18next="aboutPage.yourLink"></p>
+		<p>&nbsp;</p>
+		<p ng-i18next="[html]aboutPage.BTW"></p>
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>

@@ -1,0 +1,49 @@
+[snap-drawer] {
+	height:100%;
+	background-color: $backgroundColor;
+}
+
+#sidebarHelpLayer {
+	position:absolute;
+	top: 0;
+	bottom: 0;
+	left: $sidebarWidth;
+	right: 0;
+	z-index: 999;
+	display: none;
+}
+
+.sidebar {
+	background-color: $sidebarBackground;
+}
+
+.sidebar__list {
+
+	@extend .list-mobile;
+
+	color: $sidebarFontColor;
+}
+
+.sidebar__list__item {
+
+	background-color: $sidebarBackground;
+
+	padding: 1.5rem 1.75rem;
+
+	//font-weight: lighter;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+
+	&.active, &.ng-click-active {
+		font-weight: normal;
+		background-color: $sidebarBackgroundActive;
+		color: $sidebarFontColorActive;
+	}
+}
+
+.sidebar__list__item__divider {
+	color: $white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: $sidebarListDividerBackground !important;
+}

@@ -1,0 +1,15 @@
+{
+	"appName": "TargetFriend",
+	"version": "0.8.8",
+	"versionCode": "88",
+	"compatibility": {
+		"sinceVersion": "0.8.8",
+		"sinceVersionCode": "88"
+	},
+	"updateCheck": {
+		"url": "http://andremeyering.de/tf_news/de/latest_version.txt"
+	},
+	"dropbox": {
+		"key": "40xogubud555g6e"
+	}
+}

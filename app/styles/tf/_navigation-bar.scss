@@ -1,0 +1,70 @@
+.navigation-bar {
+	background-clip: padding-box;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	z-index: 100;
+
+	white-space: nowrap;
+	word-spacing: 0;
+
+	overflow: hidden;
+
+	padding: 0;
+	margin: 0;
+
+	border: none;
+	cursor: default;
+
+	height: $navigationBarHeight;
+
+	background-color: $navigationBarBackgroundColor;
+	color: $navigationBarFontColor;
+}
+
+.navigation-bar__item, .navigation-bar__item--group {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	line-height: $navigationBarHeight;
+	vertical-align: top;
+}
+
+.navigation-bar__title {
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	//overflow: hidden;
+	overflow: visible;
+	font-size: $navigationBarTitleFontSize;
+	font-weight: 400;
+	color: #fff;
+}
+
+.navigation-bar__button {
+	height: $navigationBarHeight;
+	padding: 5px 20px;
+	display: inline-block;
+	&.active, &.ng-click-active {
+		background-color: $navigationBarBackgroundColorActive;
+	}
+}
+
+.navigation-bar__item--group.right {
+	margin-left: -25px;
+}
+.navigation-bar__button--small {
+	@extend .navigation-bar__button;
+
+	padding: 5px 14px !important;
+}

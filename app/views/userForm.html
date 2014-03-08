@@ -1,0 +1,46 @@
+<header class="navigation-bar">
+	<div class="navigation-bar__item quarter left" ng-show="leftButton">
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-chevron-left fa-2x"></i></div>
+	</div>
+	<div class="navigation-bar__item half center">
+		<h1 class="navigation-bar__title">{{heading}}</h1>
+	</div>
+</header>
+
+<div class="wrap"><div scrolly-scroll>
+
+	<form class="form">
+
+		<div class="form__row">
+			<label class="form__label" for="firstName" ng-i18next="firstName"></label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="firstName" ng-model="userDetails.firstName">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="lastName" ng-i18next="lastName"></label>
+
+			<div class="form__input-row">
+				<input class="form__input__text" type="text" name="lastName" ng-model="userDetails.lastName">
+			</div>
+		</div>
+
+		<div class="form__row">
+			<label class="form__label" for="gender">{{'gender' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="gender" ng-options="key as value for (key, value) in formData.gender" ng-model="userDetails.gender"></select>
+			</div>
+		</div>
+
+	</form>
+
+	<a ng-click="save(userDetails)" class="button--large" ng-i18next="save"></a>
+	<span style="padding-top:25px;display:inline-block;">{{savedMsg}}</span>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div></div>
