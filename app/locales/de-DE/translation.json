@@ -44,6 +44,8 @@
 		"unableToLoad": "Laden nicht möglich!",
 		"unableToLoadDescription": "Die Datei kann nicht geladen werden! Ist eine stabile Internetverbindung vorhanden?",
 		"downloadInfo": "*: Es wird eine Internetverbindung benötigt (WLAN,...), welche Kosten verursachen kann. Die herunterzuladene Datei ist wenige Byte groß.",
+		"updateFound": "Update gefunden!",
+		"updateNotFound": "Kein Update gefunden!",
 		"updateAvailable": "__firstName__, es ist ein neues Update verfügbar. Bitte besuche die Entwicklerseite, um die neueste Version herunterzuladen.",
 		"noUpdateAvailable": "__firstName__, du bist auf dem neuesten Stand! Es ist kein neues Update verfügbar."
 	},
@@ -436,6 +438,7 @@
 	"wa_competition_outdoor_70m": "WA Meisterschaft - 2x70m",
 	"wa_competition_indoor_18m_recurve_spot": "WA Halle - 2x18m - Recurve Spot",
 	"wa_competition_indoor_18m_recurve_40cm": "WA Halle - 2x18m - Recurve 40cm",
+	"wa_competition_indoor_18m_compound_spot": "WA Halle - 2x18m - Compound 40cm",
 	"wa_star_men": "WA Stern - Männer",
 	"wa_star_women": "WA Stern - Frauen",
 	"wa_competition_indoor_25m_recurve_60cm": "WA Halle - 2x25m - Recurve",

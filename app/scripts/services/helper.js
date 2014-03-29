@@ -598,7 +598,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 
 			{
 				id: 14,
-				name:      'WA - 40cm - Recurve',
+				name:      'WA - 40cm - Spot - Recurve',
 				note:      '',
 				img:     'images/targetFaces/wa_10_6_recurve.png',
 				targetName: 'wa_10_6_recurve',
@@ -609,7 +609,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 
 			{
 				id: 15,
-				name:      'WA - 40cm - Compound',
+				name:      'WA - 40cm - Spot - Compound',
 				note:      '',
 				img:     'images/targetFaces/wa_10_6_compound.png',
 				targetName: 'wa_10_6_compound',

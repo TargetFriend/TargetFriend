@@ -2,7 +2,6 @@ angular.module('TFApp').controller('HomeCtrl', function ($rootScope, $scope, $na
 
 	'use strict';
 
-	$scope.heading = $i18next('home');
 	$scope.userName = ' ';
 
 	$rootScope.setSidebar('home');
@@ -53,18 +52,19 @@ angular.module('TFApp').controller('HomeCtrl', function ($rootScope, $scope, $na
 				helper.alert('File was NOT found!', 'Error 404');
 				return false;
 
-			// Some checks for security reasons... (I hope it's not userless :P )
+			// Some checks for security reasons... (I hope it's not useless :P )
 			} else if (headerData['content-type'] !== 'text/plain' || status !== 200) {
 
-				helper.alert('There are security errors!', 'Security Error');
+				helper.alert('There are security problems!', 'Security Error');
 				return false;
 
 			}
 
 			newVersionAvailable = (parseInt(data, 10) > currentVersion);
 
-			$scope.updateContent = newVersionAvailable ? $i18next('homePage.updateAvailable', {firstName: firstName}) :
-				$i18next('homePage.noUpdateAvailable', {firstName: firstName});
+			helper.alert(newVersionAvailable ? $i18next('homePage.updateAvailable', {firstName: firstName}) :
+				$i18next('homePage.noUpdateAvailable', {firstName: firstName}),
+				newVersionAvailable ? $i18next('homePage.updateFound') : $i18next('homePage.updateNotFound'));
 
 			console.log('TF :: home :: checked for new version:', newVersionAvailable);
 
@@ -85,6 +85,7 @@ angular.module('TFApp').controller('HomeCtrl', function ($rootScope, $scope, $na
 	};
 
 	$scope.data.requireData(['settings', 'users']).then(function () {
+		$scope.heading = $i18next('home');
 		setUser();
 	});
 
