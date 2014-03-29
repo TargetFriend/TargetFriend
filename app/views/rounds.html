@@ -51,7 +51,7 @@
 
 			<div class="list-mobile__item__content">
 
-				<h2 class="list-mobile__item__heading" bo-if="round.name">{{round.id}}. {{round.name}}</h2>
+				<h2 class="list-mobile__item__heading" bo-if="round.name">{{round.id + 1}}. {{round.name}}</h2>
 
 				<p>
 					<i class="fa" ng-hide="!round.weather" bo-class="{'fa-umbrella': round.weather==$i18next('rain'), 'fa-sun-o': round.weather==$i18next('sunny'), 'fa-cloud': round.weather==$i18next('cloudy')}"></i>

@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="list-mobile__item__content">
-				<h2 class="list-mobile__item__heading" bo-text="competition.id+'. '+competition.name"></h2>
+				<h2 class="list-mobile__item__heading" bo-text="(competition.id + 1)+'. '+competition.name"></h2>
 				<p style="margin-top:0;margin-bottom:6px;"><small bo-if="competition.tagIDs">[<span ng-repeat="tag in competition.tagIDs"><span bo-text="competitionTags[tag].name"></span><span bo-if="!$last">,&nbsp; </span></span>]</small></p>
 				<span bo-text="competition.note"></span>
 			</div>

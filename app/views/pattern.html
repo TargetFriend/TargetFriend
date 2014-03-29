@@ -37,7 +37,7 @@
 
 		<li class="clearfix list-mobile__item" ng-repeat="pattern in data.pattern track by $index" ng-click="tap(pattern)" ng-class="{active: isActive(pattern)}" ng-hide="pattern.disabled">
 
-			<h2 class="list-mobile__item__content--full-width">{{pattern.id}} {{pattern.name|i18next}}</h2>
+			<h2 class="list-mobile__item__content--full-width">{{pattern.id + 1}} {{pattern.name|i18next}}</h2>
 
 			<div ng-repeat="round in pattern.rounds track by $index" class="list-mobile__item__content half">
 
