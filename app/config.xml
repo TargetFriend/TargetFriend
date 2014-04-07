@@ -2,8 +2,8 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
 		xmlns:gap="http://phonegap.com/ns/1.0"
 		id="de.andremeyering.targetfriend"
-		version="0.8.8"
-		versionCode="88">
+		version="0.9.0"
+		versionCode="90">
 
 	<name>TargetFriend</name>
 
@@ -15,17 +15,20 @@
 		Andre Meyering
 	</author>
 
+	<!-- used for PhoneGap build -->
 	<gap:platform name="android" />
-	<preference name="phonegap-version" value="3.1.0" />
+	<preference name="phonegap-version" value="3.3.0" />
 
-	<preference name="orienation" value="portrait" />
-	<preference name="fullscreen" value="false" />
+	<preference name="Orienation" value="portrait" />
+	<preference name="Fullscreen" value="false" />
+	<preference name="DisallowOverscroll" value="true"/>
+
 	<!-- iOS only -->
 	<preference name="target-device" value="universal" />
 	<preference name="detect-data-types" value="false" />
 	<preference name="exit-on-suspend" value="true" />
 	<!-- Android only -->
-	<preference name="android-minSdkVersion"   value="14" /><!-- Android 4.0 -->
+	<preference name="android-minSdkVersion" value="14" /><!-- Android 4.0 -->
 	<preference name="android-installLocation" value="preferExternal" />
 	<preference name="splash-screen-duration" value="0"/>
 
@@ -34,6 +37,7 @@
 	<feature name="http://api.phonegap.com/1.0/file" />
 	<feature name="http://api.phonegap.com/1.0/network" />
 
+	<!-- used for PhoneGap build -->
 	<gap:plugin name="org.apache.cordova.device" />
 	<gap:plugin name="org.apache.cordova.device-orientation" />
 	<gap:plugin name="org.apache.cordova.file" />
@@ -46,19 +50,19 @@
 
 	<content src="index.html" />
 
-	<icon src="images/icon/icon.png" />
-	<icon src="images/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-	<icon src="images/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-	<icon src="images/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-	<icon src="images/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
-	<icon src="images/icon/blackberry/icon-80.png"     gap:platform="blackberry" />
-	<icon src="images/icon/blackberry/icon-80.png"     gap:platform="blackberry" gap:state="hover"/>
-	<icon src="images/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
-	<icon src="images/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-	<icon src="images/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
-	<icon src="images/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
-	<icon src="images/icon/webos/icon-64.png"          gap:platform="webos" />
-	<icon src="images/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
-	<icon src="images/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
+	<icon src="images/icons/icon.png" />
+	<icon src="images/icons/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
+	<icon src="images/icons/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
+	<icon src="images/icons/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
+	<icon src="images/icons/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+	<icon src="images/icons/blackberry/icon-80.png"     gap:platform="blackberry" />
+	<icon src="images/icons/blackberry/icon-80.png"     gap:platform="blackberry" gap:state="hover"/>
+	<icon src="images/icons/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
+	<icon src="images/icons/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
+	<icon src="images/icons/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
+	<icon src="images/icons/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
+	<icon src="images/icons/webos/icon-64.png"          gap:platform="webos" />
+	<icon src="images/icons/windows-phone/icon-48.png"  gap:platform="winphone" />
+	<icon src="images/icons/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
 </widget>

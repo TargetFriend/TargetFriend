@@ -7,9 +7,10 @@
 	"firstStart": "Du benutzt TargetFriend zum ersten mal. Bitte beachte jedoch, dass dies noch eine Beta, d.h. noch nicht fertige Version ist. Es kann sein, dass zukünftige Versionen nicht kompatibel zu den Daten sind, die du in dieser Version erstellst.<br>Hilfe findest du auf <a ng-click=\"helper.openLink('http://targetfriend.andremeyering.de');\">http://targetfriend.andremeyering.de</a>. Kurze Zusammenfassung:<ul class='normalList'><li>Oben rechts: Menü-Button</li><li>Zum Löschen/Bearbeiten ein Element länger gedrückt halten (>1s)</li><li>Zu den Einstellungen gelangst du durch das Menü.</li></ul><br><em>Diese Nachricht wird beim nächsten Start nicht wieder angezeigt.</em>",
 
 	"update": {
-		"oldVersion": "Deine bisher Installierte Version war {{oldVersion}}. Falls eine Version übersprungen wurde, kannst du den kompletten Changelog unter <a  ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/benutzer/changelog-benutzer/');\">http://targetfriend.andremeyering.de/benutzer/changelog-benutzer/</a> finden.",
+		"oldVersion": "Deine bisher installierte Version war {{oldVersion}}. Falls eine Version übersprungen wurde, kannst du den kompletten Changelog unter <a  ng-click=\"helper.openLink('http://targetfriend.andremeyering.de/benutzer/changelog/');\">http://targetfriend.andremeyering.de/benutzer/changelog/</a> finden.",
 		"wontShowAgain": "<em>Diese Nachricht wird beim nächsten Start nicht wieder angezeigt.</em>",
 
+		"0-9-0": "Dies ist Version 0.9.0 von TargetFriend. Änderungen: <br> - interne Änderungen<br> - Unterstützung für Samsung-Smartphones.",
 		"0-8-7": "Dies ist Version 0.8.7 von TargetFriend. Änderungen: <br> - interne Änderungen<br> - die alten Daten sind nicht mehr nutzbar. Bitte die alten Daten löschen."
 	},
 
@@ -243,7 +244,8 @@
 		"round": "Runde __count__",
 		"statistik": "Statistik",
 		"targetScaleMain": "Zoom der Haupt Scheibe",
-		"targetScaleTop": "Zoom der Fadenkreuz Scheibe"
+		"targetScaleTop": "Zoom der Fadenkreuz Scheibe",
+		"arrowRadius": "Pfeilradius"
 	},
 
 	"training": "Training",

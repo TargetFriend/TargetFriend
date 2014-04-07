@@ -45,6 +45,10 @@ angular.module('TFApp', ['ngTouch', 'ngRoute', 'templates-main', 'pasvaz.bindonc
 			$rootScope.oldVersion = curVersion;
 
 			switch (curVersion) {
+				case '0.8.8':
+					$rootScope.newVersion = 'update.0-9-0';
+					dataService.doUpdate(curVersion);
+					break;
 				case '0.8.6':
 					$rootScope.newVersion = 'update.0-8-7';
 					dataService.doUpdate(curVersion);
@@ -192,14 +196,6 @@ angular.module('TFApp', ['ngTouch', 'ngRoute', 'templates-main', 'pasvaz.bindonc
 	};
 
 	$rootScope.setSidebar();
-
-	window.setInterval(function() {
-		var pageElements = document.getElementsByClassName('mb-page');
-		if (pageElements.length > 1) {
-			pageElements[0].parentElement.removeChild(pageElements[0]);
-		}
-		scroll(0, 0);
-	}, 6000);
 
 	/*
 	 * Make dataService and helper available in every $scope
