@@ -19,3 +19,16 @@ Don't forget the CHANGELOG file! Also add a new update entry in translation file
 - Please use the `rebind-debug` branch of `angular-rebind`.
 
 For more documentation see [TargetFriend_doc](https://github.com/archer96/TargetFriend_doc).
+
+###Cordova Plugins###
+*TargetFriend* uses the following plugins:
+
+ - org.apache.cordova.console
+ - org.apache.cordova.device
+ - org.apache.cordova.dialogs
+ - org.apache.cordova.file
+ - org.apache.cordova.file-transfer
+ - org.apache.cordova.inappbrowser
+
+###Known Issues###
+To prevent a transition bug see: https://github.com/ajoslin/angular-mobile-nav/issues/72
