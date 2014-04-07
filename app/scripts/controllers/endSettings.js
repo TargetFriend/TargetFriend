@@ -11,7 +11,8 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 	$scope.endDetails = {
 		// hold in sync with end.js
 		targetScaleMain: 4,
-		targetScaleTop: 2.4
+		targetScaleTop: 1.6,
+		arrowRadius: 8
 	};
 	/**
 	 * All form items.
@@ -19,7 +20,8 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 	 */
 	$scope.formData = {
 		targetScaleMain: [0.8, 0.9, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8],
-		targetScaleTop: [0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6]
+		targetScaleTop: [0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6],
+		arrowRadius: [6, 8, 10, 12, 14, 16, 18, 20]
 	};
 
 	function init () {
@@ -47,17 +49,17 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 			return;
 		}
 
+		$scope.saveMsg = $i18next('saving') + '...';
+
 		$scope.data.settings[0].targetScaleMain = endData.targetScaleMain;
 		$scope.data.settings[0].targetScaleTop  = endData.targetScaleTop;
 
 		$scope.data.update('settings', $scope.data.settings).then(function () {
 
-			$scope.$apply(function () {
-				$scope.savedMsg = $i18next('saved');
-			});
+			$scope.saveMsg = $i18next('saved');
 
 			$timeout(function () {
-				$scope.savedMsg = '';
+				$scope.saveMsg = '';
 			}, 2000);
 
 			console.log('TF :: settings :: saved endSettings', endData);

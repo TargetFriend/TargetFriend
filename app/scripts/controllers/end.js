@@ -15,6 +15,12 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 	$scope.targetHeight = $(window).height() - 75 - 160;
 
 	var isTouch = true,
+		// hold in sync with endSettings.js
+		defaults = {
+			targetScaleMain: 4,
+			targetScaleTop: 1.6,
+			arrowRadius: 8
+		},
 		/**
 		 * Whether we're using compound scoring or not. If true,
 		 * `X` becomes `10` and `10` becomes `9`
@@ -83,7 +89,7 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 				}
 			},
 			enabled:  {
-				radius: 8,
+				radius: defaults.arrowRadius,
 				draggable: 1,
 				style: {
 					initial: {
@@ -127,12 +133,6 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 	 * @type {Number}
 	 */
 	$scope.highlightedArrow = -1;
-
-	// hold in sync with endSettings.js
-	var defaults = {
-		targetScaleMain: 4,
-		targetScaleTop: 2.4
-	};
 
 	$scope.leftButton = {
 		tap: function () {
@@ -183,6 +183,8 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 				$scope.round.targetNumber,
 				$scope.round.targetScale || 1
 			);
+
+			arrowOptions.enabled.radius = $scope.data.settings[0].arrowRadius || defaults.arrowRadius;
 
 			initTargetOptions();
 			initEndTargetFace();

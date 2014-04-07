@@ -27,11 +27,19 @@
 			</div>
 		</div>
 
+		<div class="form__row">
+			<label class="form__label" for="arrowRadius">{{'endPage.arrowRadius' | i18next}}</label>
+
+			<div class="form__input-row">
+				<select class="form__input__select" name="arrowRadius" ng-options="item for item in formData.arrowRadius" ng-model="endDetails.arrowRadius"></select>
+			</div>
+		</div>
+
 	</form>
 
 	<div class="clearfix">
 		<div class="half alignLeft">
-			<p class="content" style="padding-top:25px;">{{savedMsg}}</p>
+			<p class="content" style="display:inline-block;padding-top:40px;">{{saveMsg}}</p>
 		</div>
 
 		<div class="half alignLeft"><a ng-click="save(endDetails)" class="button--large alignRight" ng-i18next="save"></a></div>
