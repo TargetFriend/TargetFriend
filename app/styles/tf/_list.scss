@@ -63,7 +63,8 @@
 .list-mobile__item__content {
 
 	@extend .content;
-
+	padding-left: 12px;
+	padding-right: 12px;
 	display: inline-block;
 	float: left;
 	width: auto;

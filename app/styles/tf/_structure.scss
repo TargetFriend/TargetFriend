@@ -11,10 +11,14 @@ html, body, #container, .mb-page {
 	background-color: $backgroundColor;
 }
 
+#container {
+	@include transform(translate3d(0,0,0));
+}
+
 body {
 	-webkit-touch-callout: none;    /* prevent callout to copy image, etc when tap to hold */
-	//-webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
-	//-moz-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	-webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	-moz-text-size-adjust: none;
 	@include user-select(none);
 }
 
@@ -32,7 +36,7 @@ input, textarea {
 	margin-right: -$contentPaddingRight;
 }
 
-.mobile-view {
+.mobile-view, [mobile-view] {
 	position: static !important;
 	height: 100% !important;
 }

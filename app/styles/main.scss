@@ -17,14 +17,12 @@ $fa-font-path: "fonts";
 @import "font-awesome/stacked";
 @import "font-awesome/icons";
 
-
 @import "ArcheryIcons/ArcheryIcons";
 
 .archery-2x { font-size: 2em; }
 .archery-3x { font-size: 3em; }
 .archery-4x { font-size: 4em; }
 .archery-5x { font-size: 5em; }
-
 
 @import "tf/variables";
 @import "tf/mixins";
