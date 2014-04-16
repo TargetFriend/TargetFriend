@@ -10,8 +10,14 @@ When changing version number, you have to change it in following files:
 
 	- package.json
 	- bower.json
-	- config.json (+ versionCode)
+	- app/config.json (+ versionCode)
 	- app/config.xml (+ versionCode)
+
+Or you can run:
+
+```bash
+grunt changeVersion:"yourversion"
+```
 
 Don't forget the CHANGELOG file! Also add a new update entry in translation files.
 
