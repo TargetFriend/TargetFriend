@@ -2,7 +2,7 @@
 
 }
 
-.form__row, .form__label-row, .form__input-row {
+.form__row, .form__label-row, .form__input-row, .form__input__text, .form__textarea {
 	display: inline-block;
 }
 
@@ -17,14 +17,20 @@
 	@extend .form__row;
 
 	background-color: darken($formRowBackground, 1.4%);
+	position: relative;
+	padding: 3px 0;
 
-	padding: 7px 0;
-
-	.form__input-row:after {
-		@extend .#{$fa-css-prefix};
-		content: $fa-var-chevron-right;
-		float: right;
-		font-size: 2.6rem;
+	.form__input-row {
+		padding-right: 25px;
+		&:after {
+			@extend .#{$fa-css-prefix};
+			content: $fa-var-chevron-right;
+			font-size: 2.5rem;
+			position: absolute;
+			top: 50%;
+			margin-top: -1.25rem; // -50% of font-size
+			right: 12px;
+		}
 	}
 
 	&.ng-click-active, &.active {
@@ -38,7 +44,6 @@
 	vertical-align: middle;
 	width: $formLabelWidth_default;
 	padding: 0 5px 0 15px;
-	font-size: $baseFontSize + .2rem;
 	word-break: break-all;
 }
 
@@ -49,7 +54,6 @@
 
 .form__input-row {
 	width: $formInputWidth_default;
-	display: inline-block;
 	padding: 10px 15px 10px 8px;
 	> span {
 		display: inline-block;
@@ -64,7 +68,6 @@
 .form__input__text, .form__textarea {
 
 	background-color: $formInputBackground;
-	display: block;
 	border: 0;
 
 	@include border-radius(4px);
@@ -80,12 +83,23 @@
 	}
 
 }
+.form__input__text, .form__textarea {
+	font-size: $baseFontSize + .1rem;
+}
 
 .form__input__text {
 	width: $formSelectWidth;
 	line-height: 1.7;
-	font-size: $baseFontSize + .3rem;
 	padding: 4px 15px;
+}
+
+.form__textarea {
+	width: $formSelectWidth;
+	line-height: 1.4;
+	padding: 5px 10px;
+	min-height: 14rem;
+	height: auto;
+	margin: 0 auto;
 }
 
 .form__input__select {
@@ -101,16 +115,6 @@
 	height: auto;
 	min-height: $formSelectHeight * 3;
 	max-height: $formSelectHeight * 6;
-	-webkit-appearance: listbox;
-	-moz-appearance: listbox;
-}
-
-.form__textarea {
-	width: $formSelectWidth;
-	line-height: 1.4;
-	font-size: $baseFontSize + .25rem;
-	padding: 5px 10px;
-	min-height: 14rem;
-	height: auto;
-	margin: 0 auto;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
