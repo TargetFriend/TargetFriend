@@ -158,11 +158,11 @@
 		"defaults": "Standard Einstellungen",
 
 		"competition": {
-			"defaultsDescription": "Setze die Standart-Einstellungen für neue Wettkämpfe fest.",
+			"defaultsDescription": "Setze die Standard-Einstellungen für neue Wettkämpfe fest.",
 			"tagDescription": "Lege die möglichen Schlagwörter für Wettkämpfe fest."
 		},
 		"round": {
-			"defaultsDescription": "Setze die Standart-Einstellungen für neue Runden fest."
+			"defaultsDescription": "Setze die Standard-Einstellungen für neue Runden fest."
 		},
 
 		"end": "Ändere Scheibenzoom, etc.",
@@ -217,10 +217,10 @@
 			"statisticsInfo": "Neben dem Schießzettel wird dir auch eine Tabelle angezeigt, in der die Anzahl der jeweils geschossenen Ringe angezeigt wird.<br><br>Darunter wird die Tabelle als Kreisdiagramm veranschaulicht.",
 
 			"targetHeading": "Scheibe - Übersicht",
-			"targetInfo": "Hast du eine Auflage ausgewählt, so wird dir zudem noch eine Übersichtsscheibe angezeigt. Auf dieser sind standardmäßig alle Pfeile zu sehen. Du hast in der Standartansicht die Möglichkeit, einzelne Passen, aber auch einzelne Pfeile aus- und einzublenden.",
+			"targetInfo": "Hast du eine Auflage ausgewählt, so wird dir zudem noch eine Übersichtsscheibe angezeigt. Auf dieser sind standardmäßig alle Pfeile zu sehen. Du hast in der Standardansicht die Möglichkeit, einzelne Passen, aber auch einzelne Pfeile aus- und einzublenden.",
 
 			"advancedEndsHeading": "Erweitert - Passen",
-			"advancedEndsInfo": "Neben der Standardansicht gibt es auch noch die erweiterten Ansichten. In der erweiterten Ansicht für Passen wird dir der Mittelpunkt und die Standardabweichung jeder einzelnen Passe inklusive Passennummer auf einer Scheibe angezeigt. Falls du auf mehrere Scheiben geschossen hast, so werden alle Pfeile zur besseren Übersichtlichkeit nun auf einer enzigen Scheibe angezeigt.<br><br>Die <em>Standartabweichung</em> kannst du als Streuung ansehen. Je kleiner die dargestellt Ellipse ist, umso besser sind deine Pfeile gruppiert.<br><br>Du hast die Möglichkeit, die Standardabweichung anzublenden.",
+			"advancedEndsInfo": "Neben der Standardansicht gibt es auch noch die erweiterten Ansichten. In der erweiterten Ansicht für Passen wird dir der Mittelpunkt und die Standardabweichung jeder einzelnen Passe inklusive Passennummer auf einer Scheibe angezeigt. Falls du auf mehrere Scheiben geschossen hast, so werden alle Pfeile zur besseren Übersichtlichkeit nun auf einer enzigen Scheibe angezeigt.<br><br>Die <em>Standardabweichung</em> kannst du als Streuung ansehen. Je kleiner die dargestellt Ellipse ist, umso besser sind deine Pfeile gruppiert.<br><br>Du hast die Möglichkeit, die Standardabweichung anzublenden.",
 
 			"advancedTargetsHeading": "Erweitert - Scheiben",
 			"advancedTargetsInfo": "Die erweiterte Ansicht für Scheiben kannst du nur auswählen, wenn du mit mehreren Scheiben geschossen hast. Der Unterschied zu der Ansicht für Passen ist, dass die Mittelpunkte und Standardabweichungen sich nun auf die einzelnen Scheiben beziehen. So ist es möglich zu erfassen, ob man auf einer Scheibe schlechter schießt, als auf einer anderen.",
@@ -418,9 +418,9 @@
 	"menu": "Menü",
 	"cancel": "Abbrechen",
 	"ok": "Ok",
-	"default": "Standart",
+	"default": "Standard",
 
-	"standardDeviation": "Standartabweichung",
+	"standardDeviation": "Standardabweichung",
 
 	"help": "Hilfe",
 	"info": "Info",
