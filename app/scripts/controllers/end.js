@@ -133,6 +133,7 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 	 * @type {Number}
 	 */
 	$scope.highlightedArrow = -1;
+	$scope.nextArrowOnTouch = null;
 
 	$scope.leftButton = {
 		tap: function () {
@@ -356,6 +357,10 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 					return false;
 				}
 
+				if ($scope.highlightedArrow >= 0) {
+					$scope.highlightArrow(false);
+				}
+
 				$scope.round.ends = e.arrows;
 
 			},
@@ -391,7 +396,7 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 				/*
 				 * Did we already shoot all arrows? If true, return false.
 				 */
-				if (activeArrows >= $scope.round.arrowNumber || !isEnabled) {
+				if ((activeArrows >= $scope.round.arrowNumber || !isEnabled) && !$scope.nextArrowOnTouch) {
 					e.preventDefault();
 					return;
 				}
@@ -402,13 +407,13 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 					$scope.round.ends = atRef.get('arrows');
 					$scope.curArrows = $scope.round.ends[$scope.curEnd];
 				});
-
-				var arrowData = $scope.curArrows.data[activeArrows],
+				console.log($scope.nextArrowOnTouch);
+				var arrowData = $scope.curArrows.data[$scope.nextArrowOnTouch ? $scope.nextArrowOnTouch.index : activeArrows],
 					arrowElement = arrowData.el;
 
 				atRef.set('arrowActive', {
 					arrowsetID: $scope.curEnd,
-					arrowID: activeArrows,
+					arrowID: $scope.nextArrowOnTouch ? $scope.nextArrowOnTouch.id : activeArrows,
 					active: true
 				});
 
@@ -437,7 +442,8 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 					pageY: y
 				});
 
-				activeArrows++;
+				!$scope.nextArrowOnTouch && activeArrows++;
+				$scope.nextArrowOnTouch = null;
 
 			}
 		};
@@ -643,23 +649,39 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 				});
 			}
 
-			var style = {
-				opacity: 1,
-				color: '#0000ff',
-				stroke: '#ff0000',
-				radius: 10
-			};
+			if (arrow && arrow.id >= 0) {
+				var style = {
+					opacity: 1,
+					color: '#0000ff',
+					stroke: '#ff0000',
+					radius: 10
+				};
 
-			atRef.set('arrowStyle', {
-				arrowsetID: $scope.curEnd,
-				arrowID: arrow.id,
-				style: style
-			});
+				atRef.set('arrowStyle', {
+					arrowsetID: $scope.curEnd,
+					arrowID: arrow.id,
+					style: style
+				});
+			}
 
 		}
 
 		$scope.highlightedArrow = arrow.id;
 
+	};
+	/**
+	 * Highlights an arrow and will 'reset' an arrow so the user can set it again.
+	 * @param {Number} arrowID Id of the arrow
+	 * @param {Number} index   Index of the arrow in the current arrow array
+	 */
+	$scope.setArrowOnTouch = function (arrowID, index) {
+		if (!isTargetFaceMode || !isEnabled) {
+			return;
+		}
+		console.log(arrowID, index);
+		// Highlight the arrow so the user knows which arrow will be set
+		$scope.highlightArrow({id: arrowID});
+		$scope.nextArrowOnTouch = {id: arrowID, index: index};
 	};
 
 	/**

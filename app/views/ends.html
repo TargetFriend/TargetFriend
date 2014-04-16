@@ -1,6 +1,6 @@
 <header class="navigation-bar">
 	<div class="navigation-bar__item quarter left" ng-show="leftButton">
-		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-bars fa-2x"></i></div>
 	</div>
 	<div class="navigation-bar__item half center">
 		<h1 class="navigation-bar__title">{{curEnd + 1}}/{{round.endNumber}}</h1>
@@ -15,7 +15,7 @@
 
 	<table class="pointsTable">
 		<tr class="pointsTable__row">
-			<td class="pointsTable__cell" ng-repeat="arrow in curArrows.data track by $index" ng-click="highlightArrow(arrow)" ng-class="{'active': (highlightedArrow == arrow.id)}" rowspan="2">{{helper.checkCompoundRing(isCompound, arrow.ring)}}<sub ng-if="round.showArrowNumbers">{{arrow.id + 1}}</sub></td>
+			<td class="pointsTable__cell" ng-repeat="arrow in curArrows.data track by $index" ng-click="highlightArrow(arrow)" ng-class="{'active': (highlightedArrow == arrow.id), 'setArrow': (nextArrowOnTouch.id == arrow.id)}" rowspan="2" ng-taphold="setArrowOnTouch(arrow.id, $index)">{{helper.checkCompoundRing(isCompound, arrow.ring)}}<sub ng-if="round.showArrowNumbers">{{arrow.id + 1}}</sub></td>
 			<td class="pointsTable__cell">{{endPoints}}</td>
 		</tr>
 		<tr class="pointsTable__row">

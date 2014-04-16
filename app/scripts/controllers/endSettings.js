@@ -37,7 +37,8 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 
 		$scope.data.requireData(['settings']).then(function () {
 			$scope.endDetails.targetScaleMain = $scope.data.settings[0].targetScaleMain || $scope.endDetails.targetScaleMain;
-			$scope.endDetails.targetScaleTop  = $scope.data.settings[0].targetScaleTop || $scope.endDetails.targetScaleTop;
+			$scope.endDetails.targetScaleTop  = $scope.data.settings[0].targetScaleTop  || $scope.endDetails.targetScaleTop;
+			$scope.endDetails.arrowRadius     = $scope.data.settings[0].arrowRadius     || $scope.endDetails.arrowRadius;
 		});
 
 	}
@@ -49,18 +50,23 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 			return;
 		}
 
+		var settings = $scope.data.settings;
+
 		$scope.saveMsg = $i18next('saving') + '...';
 
-		$scope.data.settings[0].targetScaleMain = endData.targetScaleMain;
-		$scope.data.settings[0].targetScaleTop  = endData.targetScaleTop;
+		settings[0].targetScaleMain = endData.targetScaleMain;
+		settings[0].targetScaleTop  = endData.targetScaleTop;
+		settings[0].arrowRadius     = endData.arrowRadius;
 
-		$scope.data.update('settings', $scope.data.settings).then(function () {
+		$scope.data.update('settings', settings).then(function () {
 
 			$scope.saveMsg = $i18next('saved');
 
 			$timeout(function () {
 				$scope.saveMsg = '';
 			}, 2000);
+
+			$navigate.back();
 
 			console.log('TF :: settings :: saved endSettings', endData);
 

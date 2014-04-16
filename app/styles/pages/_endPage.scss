@@ -19,8 +19,11 @@
 	&:last-child {
 		border-right: none;
 	}
-	&.active {
+	&.active, &.ng-click-active {
 		background-color: darken($backgroundColor, 4%);
+	}
+	&.setArrow {
+		background-color: lighten($highlightColorMain, 24%);
 	}
 }
 
@@ -73,3 +76,4 @@
 		}
 	}
 }
+
