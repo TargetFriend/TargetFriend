@@ -358,6 +358,56 @@ module.exports = function (grunt) {
 		grunt.task.run(['serve']);
 	});
 
+	/**
+	 * Grunt task to change version in a few files.
+	 * Run using: `grunt changeVersion:"yourversion"`
+	 * @param  {string} version New version
+	 * @example
+	 * `grunt changeVersion:"1.0.0"`
+	 */
+	grunt.registerTask('changeVersion', function (version) {
+
+		if (!version) {
+			grunt.fail.fatal('You haven\'t defined a version!');
+			return false;
+		}
+
+		var vCode         = version.replace(/\./g, '') * 1,
+			vJSONRegEx    = /(\"version\": )(.+)/g,
+			vXMLRegEx     = /([^ ]*	version=)[^\n ]*/g,
+			vCodeRegEx    = /(\"versionCode\": )(.+)/g,
+			vCodeXMLRegEx = /(versionCode=)[^\n>]*/g,
+			fileData;
+
+		grunt.log.writeln('Change version in file `bower.json`');
+		fileData = grunt.file.read('./bower.json');
+		fileData = fileData.replace(vJSONRegEx, '$1' + '"' + version + '",');
+		grunt.file.write('./bower.json', fileData);
+
+		grunt.log.writeln('Change version in file `package.json`');
+		fileData = grunt.file.read('./package.json');
+		fileData = fileData.replace(vJSONRegEx, '$1' + '"' + version + '",');
+		grunt.file.write('./package.json', fileData);
+
+		grunt.log.writeln('Change version in file `app/config.json`');
+		fileData = grunt.file.read('./app/config.json');
+		fileData = fileData.replace(vJSONRegEx, '$1' + '"' + version + '",');
+		fileData = fileData.replace(vCodeRegEx, '$1' + '"' + vCode + '",');
+		grunt.file.write('./app/config.json', fileData);
+
+		grunt.log.writeln('Change version in file `app/config.xml`');
+		fileData = grunt.file.read('./app/config.xml');
+		fileData = fileData.replace(vXMLRegEx, '$1' + '"' + version + '"');
+		fileData = fileData.replace(vCodeXMLRegEx, '$1' + '"' + vCode + '"');
+		grunt.file.write('./app/config.xml', fileData);
+
+		grunt.log.write('\n');
+		grunt.log.oklns('Successfully changed version to: ' + version + ' (code: ' + vCode + ')');
+		grunt.log.write('\n');
+		grunt.log.writeln(' --> Don\'t forget about CHANGELOG and translation files!');
+
+	});
+
 	grunt.registerTask('test', [
 		'clean:server',
 		'concurrent:test',
