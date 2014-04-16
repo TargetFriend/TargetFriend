@@ -37,11 +37,11 @@
 
 		<li class="clearfix list-mobile__item" ng-repeat="pattern in data.pattern track by $index" ng-click="tap(pattern)" ng-class="{active: isActive(pattern)}" ng-hide="pattern.disabled">
 
-			<h2 class="list-mobile__item__content--full-width">{{pattern.id}} {{pattern.name|i18next}}</h2>
+			<h2 class="list-mobile__item__content--full-width">{{pattern.id}}. {{pattern.name|i18next}}</h2>
 
-			<div ng-repeat="round in pattern.rounds track by $index" class="list-mobile__item__content half">
+			<div bindonce="pattern.rounds" ng-repeat="round in pattern.rounds track by $index" class="list-mobile__item__content half">
 
-				<h3>{{$index + 1}}. {{round.name}}</h3>
+				<h3 bo-text="($index + 1)+'. '+round.name"></h3>
 
 				<p>
 					{{round.endNumber}} {{'end_plural' | i18next}} {{'eachWith' | i18next}} {{round.arrowNumber}} {{'arrow_plural' | i18next}}
@@ -58,15 +58,13 @@
 
 				<p ng-if="round.distanceID">
 					{{'distance' | i18next}}:&nbsp;
-					{{data.distancesById[round.distanceID].name}}
+					<span bo-text="data.distancesById[round.distanceID].name"></span>
 					<em ng-if="data.distancesById[round.distanceID].note"> ({{data.distancesById[round.distanceID].note}})</em>
 				</p>
 
 				<p ng-if="round.targetFaceID">
 					{{'targetFace' | i18next}}: {{data.targetFacesById[round.targetFaceID].name | i18next}}
 				</p>
-
-				<p>&nbsp;</p>
 
 			</div>
 

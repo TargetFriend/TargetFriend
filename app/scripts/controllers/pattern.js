@@ -17,7 +17,7 @@ angular.module('TFApp').controller('PatternCtrl', function ($rootScope, $scope, 
 	$scope.heading = $i18next('pattern_plural');
 
 	$scope.leftButton = {
-		iconClass: isSelectPage ? 'fa-chevron-left' : 'fa-reorder',
+		iconClass: isSelectPage ? 'fa-chevron-left' : 'fa-bars',
 		tap: function () {
 			if (isSelectPage) {
 				$navigate.back();

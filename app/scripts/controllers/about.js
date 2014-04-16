@@ -18,7 +18,7 @@ angular.module('TFApp').controller('AboutCtrl', function ($rootScope, $scope, $i
 		$scope.heading = $i18next('aboutPage.heading');
 
 		$scope.leftButton = {
-			iconClass: 'fa-reorder',
+			iconClass: 'fa-bars',
 			tap: function () {
 				$scope.snapRemote.open('left');
 			}

@@ -94,7 +94,7 @@ angular.module('TFApp').controller('ArrowsetCtrl', function ($rootScope, $scope,
 			$scope.heading = $i18next('arrowset_plural');
 
 			$scope.leftButton = {
-				iconClass: 'fa-reorder',
+				iconClass: 'fa-bars',
 				tap: function () {
 					$scope.snapRemote.open('left');
 				}

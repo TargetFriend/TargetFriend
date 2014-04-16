@@ -12,7 +12,7 @@ angular.module('TFApp').controller('HelpCtrl', function ($rootScope, $routeParam
 		$scope.heading = $i18next('helpPage.heading');
 
 		$scope.leftButton = {
-			iconClass: 'fa-reorder',
+			iconClass: 'fa-bars',
 			tap: function () {
 				$scope.snapRemote.open('left');
 			}

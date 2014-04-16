@@ -115,7 +115,7 @@ angular.module('TFApp').controller('BowCtrl', function ($rootScope, $scope, $rou
 			$scope.heading = $i18next('bow_plural');
 
 			$scope.leftButton = {
-				iconClass: 'fa-reorder',
+				iconClass: 'fa-bars',
 				tap: function () {
 					$scope.snapRemote.open('left');
 				}

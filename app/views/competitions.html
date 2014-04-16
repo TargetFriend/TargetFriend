@@ -1,6 +1,6 @@
 <header class="navigation-bar">
 	<div class="navigation-bar__item quarter left" ng-show="leftButton">
-		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-reorder fa-2x"></i></div>
+		<div class="navigation-bar__button" ng-click="leftButton.tap();"><i class="fa fa-bars fa-2x"></i></div>
 	</div>
 	<div class="navigation-bar__item half center">
 		<h1 class="navigation-bar__title">{{heading}}</h1>
@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="list-mobile__item__content">
-				<h2 class="list-mobile__item__heading" bo-text="(competition.id + 1)+'. '+competition.name"></h2>
+				<h2 class="list-mobile__item__heading" bo-text="(competition.id)+'. '+competition.name"></h2>
 				<p style="margin-top:0;margin-bottom:6px;"><small bo-if="competition.tagIDs">[<span ng-repeat="tag in competition.tagIDs"><span bo-text="competitionTags[tag].name"></span><span bo-if="!$last">,&nbsp; </span></span>]</small></p>
 				<span bo-text="competition.note"></span>
 			</div>
