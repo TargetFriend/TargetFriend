@@ -442,7 +442,10 @@ angular.module('TFApp').controller('EndCtrl', function ($rootScope, $scope, $rou
 					pageY: y
 				});
 
-				!$scope.nextArrowOnTouch && activeArrows++;
+				if (!$scope.nextArrowOnTouch) {
+					activeArrows++;
+				}
+
 				$scope.nextArrowOnTouch = null;
 
 			}

@@ -27,7 +27,7 @@ angular.module('TFApp', ['ngTouch', 'ngRoute', 'templates-main', 'pasvaz.bindonc
 	$http.get('./config.json').then(function (response) {
 
 		var data = response.data,
-			curVersion = window.localStorage.getItem('version');;
+			curVersion = window.localStorage.getItem('version');
 
 		$rootScope.appConfig = data;
 
@@ -211,11 +211,15 @@ angular.module('TFApp', ['ngTouch', 'ngRoute', 'templates-main', 'pasvaz.bindonc
 
 }).filter('reverse', function () {
 
+	'use strict';
+
 	return function (items) {
 		return items ? items.slice().reverse() : [];
 	};
 
 }).filter('range', function () {
+
+	'use strict';
 
 	return function (input, total) {
 		total = parseInt(total);

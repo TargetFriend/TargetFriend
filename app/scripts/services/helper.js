@@ -11,8 +11,11 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 		}
 
 		var dateObj = new Date(dateString),
+			day = ('0' + dateObj.getDate()).slice(-2),
+			month = ('0' + (dateObj.getMonth() + 1)).slice(-2),
+			date;
 
-			date = dateObj.getDate() + '.' + (dateObj.getMonth() + 1) + '.' + dateObj.getFullYear();
+		date = day + '.' + month + '.' + dateObj.getFullYear();
 
 		return date;
 
@@ -43,14 +46,11 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 		alertCallback = alertCallback || null;
 
 		if (isPhoneGap) {
-
 			navigator.notification.alert(message, alertCallback, title, buttonName);
-
 		} else {
-
 			window.alert(title + ': ' + message);
-
 		}
+
 	};
 
 	helper.tmpFormData = {
@@ -60,6 +60,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 	};
 
 	helper.openLink = function (link) {
+
 		if ($window.isPhoneGap) {
 			// Open with InAppBrowser
 			$window.open(link, '_system', 'location=yes');
@@ -67,6 +68,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 			// Just open a new tab
 			$window.open(link, '_blank');
 		}
+
 	};
 
 	/**
@@ -220,6 +222,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 			helper.getFileContent(fileEntry, callback);
 
 		}, helper.FSError);
+
 	};
 
 	helper.getFileContent = function (fileEntry, callback) {
@@ -237,6 +240,7 @@ angular.module('TFApp').service('helper', function ($i18next, $window) {
 			reader.readAsText(file);
 
 		}, helper.FSError);
+
 	};
 
 	helper.fireEvent = function (target, name, params) {

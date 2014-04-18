@@ -1,5 +1,5 @@
 angular.module('TFApp')
-.service('dataService', function ($rootScope, $q, $i18next, helper) {
+.service('dataService', function ($rootScope, $q, $i18next) {
 
 	'use strict';
 
@@ -79,6 +79,8 @@ angular.module('TFApp')
 	var requireData = dataService.requireData = function (tables) {
 
 		var deferred = $q.defer();
+
+		console.log(tables);
 
 		if (dataLoaded) {
 

@@ -193,9 +193,9 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 					bow = $scope.data.bowsById[round.bowID] || {};
 
 				if (bow.markers) {
-					for (var j = 0; j < bow.markers.length; j++) {
-						if (parseInt(bow.markers[j].distanceID, 10) === parseInt(round.distanceID, 10)) {
-							$scope.markers[round.id] = bow.markers[j];
+					for (var l = 0; l < bow.markers.length; l++) {
+						if (parseInt(bow.markers[l].distanceID, 10) === parseInt(round.distanceID, 10)) {
+							$scope.markers[round.id] = bow.markers[l];
 						}
 					}
 				}
