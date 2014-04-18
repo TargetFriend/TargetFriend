@@ -1,4 +1,5 @@
-#TargetFriend#
+#TargetFriend[![Build Status](https://travis-ci.org/archer96/TargetFriend.svg?branch=master)](https://travis-ci.org/archer96/TargetFriend)#
+
 TargetFriend is a scoring app for archers.
 
 ##License##
