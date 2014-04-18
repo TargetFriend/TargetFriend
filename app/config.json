@@ -7,7 +7,7 @@
 		"sinceVersionCode": "88"
 	},
 	"updateCheck": {
-		"url": "http://andremeyering.de/tf_news/de/latest_version.txt"
+		"url": "http://andremeyering.de/tf_news/latest_version.txt"
 	},
 	"dropbox": {
 		"key": "40xogubud555g6e"
