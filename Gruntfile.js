@@ -39,7 +39,6 @@ module.exports = function (grunt) {
 		watch: {
 			js: {
 				files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-				//tasks: ['newer:jshint:all'],
 				options: {
 					livereload: true
 				}
@@ -110,7 +109,8 @@ module.exports = function (grunt) {
 			all: [
 				'Gruntfile.js',
 				'<%= yeoman.app %>/scripts/{,*/}*.js',
-				'!<%= yeoman.app %>/scripts/services/database.js'
+				'!<%= yeoman.app %>/scripts/services/data.js',
+				'!<%= yeoman.app %>/scripts/directives/angular-scrolly.js'
 			],
 			test: {
 				options: {
@@ -306,7 +306,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-
 		html2js: {
 			options: {
 				base: '<%= yeoman.app %>',
@@ -325,6 +324,13 @@ module.exports = function (grunt) {
 			main: {
 				src: ['<%= yeoman.app %>/views/*.html'],
 				dest: '<%= yeoman.dist %>/scripts/templates.js'
+			}
+		},
+
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js',
+				singleRun: true
 			}
 		}
 
@@ -351,6 +357,7 @@ module.exports = function (grunt) {
 			'connect:livereload',
 			'watch'
 		]);
+
 	});
 
 	grunt.registerTask('server', function () {
@@ -361,7 +368,7 @@ module.exports = function (grunt) {
 	/**
 	 * Grunt task to change version in a few files.
 	 * Run using: `grunt changeVersion:"yourversion"`
-	 * @param  {string} version New version
+	 * @param {string} version New version
 	 * @example
 	 * `grunt changeVersion:"1.0.0"`
 	 */
@@ -410,6 +417,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'clean:server',
+		'jshint',
 		'concurrent:test',
 		'connect:test',
 		'karma'
@@ -423,6 +431,7 @@ module.exports = function (grunt) {
 	]);
 	grunt.registerTask('build:phonegap', [
 		'clean:dist',      // Clean the build folder
+		'jshint:all',
 		'useminPrepare',   // prepare minification (look out for build comments in HTML)
 		'concurrent:dist', // compass and minification
 		'concat',          // use concat (it is specified by useminPrepare)
@@ -439,6 +448,7 @@ module.exports = function (grunt) {
 	]);
 	grunt.registerTask('build:webapp', [
 		'clean:dist',      // Clean the build folder
+		'jshint:all',
 		'useminPrepare',   // prepare minification (look out for build comments in HTML)
 		'concurrent:dist', // compass and minification
 		'concat',          // use concat (it is specified by useminPrepare)
@@ -455,7 +465,7 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('default', [
-		'newer:jshint',
+		'jshint',
 		'test',
 		'build'
 	]);
