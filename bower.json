@@ -2,28 +2,29 @@
 	"name": "TargetFriend",
 	"version": "0.9.0",
 	"dependencies": {
-		"angular": "~1.2.7",
-		"es5-shim": "~2.1.0",
+		"angular": "^1.2.7",
+		"es5-shim": "^2.1.0",
 		"IndexedDBShim": "git://github.com/axemclion/IndexedDBShim.git",
 		"db.js": "https://github.com/aaronpowell/db.js/archive/master.zip",
-		"jquery": ">=2.1.0",
-		"i18next": ">=1.7.1",
+		"jquery": "^2.1.0",
+		"i18next": "^1.7.1",
 		"ng-i18next": "git://github.com/archer96/ng-i18next.git",
 		"angular-mobile-nav": "git://github.com/ajoslin/angular-mobile-nav.git",
 		"archerTarget.js": "git://github.com/archer96/archerTarget.js.git",
 		"isPhoneGap": "git://github.com/archer96/isPhoneGap.git",
-		"angular-scrolly": "~0.0.8",
+		"angular-scrolly": "^0.0.8",
 		"snapjs": "*",
-		"angular-snap": ">=1.4.0",
-		"angular-touch": "~1.2.8",
-		"angular-route": "~1.2.8",
+		"angular-snap": "^1.4.0",
+		"angular-touch": "^1.2.8",
+		"angular-route": "^1.2.8",
 		"Chart.js": "git://github.com/nnnick/Chart.js.git",
 		"dropbox": "http://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.2/dropbox.min.js",
-		"angular-bindonce": "~0.3.1"
+		"angular-bindonce": "^0.3.1"
 	},
 	"devDependencies": {
-		"angular-mocks": ">=1.2.8",
-		"angular-scenario": ">=1.2.8"
+		"angular-mocks": "^1.2.8",
+		"angular-scenario": "^1.2.8",
+		"angular-sanitize": "^1.2.16"
 	},
 	"private": true
 }
