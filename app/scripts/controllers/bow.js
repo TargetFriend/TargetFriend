@@ -79,7 +79,34 @@ angular.module('TFApp').controller('BowCtrl', function ($rootScope, $scope, $rou
 				 * can use the data
 				 */
 				$scope.data.requireData(['bows']).then(function () {
-					$scope.bowDetails = $scope.data.bowsById[bowID];
+
+					if ($scope.helper.tmpFormData.bow) {
+
+						$scope.bowDetails    = angular.copy($scope.helper.tmpFormData.bow);
+						$scope.bowDetailsAlt = angular.copy($scope.helper.tmpFormData.bowAlt);
+
+					} else {
+
+						var bowDetails = $scope.bowDetails = $scope.data.bowsById[bowID];
+
+						if ($scope.formData.bowSize.indexOf(bowDetails.bowSize) === -1) {
+							$scope.bowDetailsAlt.bowSize = bowDetails.bowSize;
+							bowDetails.bowSize = null;
+							console.log($scope.bowDetailsAlt.bowSize);
+						}
+						if ($scope.formData.riserSize.indexOf(bowDetails.riserSize) === -1) {
+							$scope.bowDetailsAlt.riserSize = bowDetails.riserSize;
+							bowDetails.riserSize = null;
+						}
+						if ($scope.formData.limbSize.indexOf(bowDetails.limbSize) === -1) {
+							$scope.bowDetailsAlt.limbSize = bowDetails.limbSize;
+							bowDetails.limbSize = null;
+						}
+
+					}
+
+					$scope.setHelperFormData();
+
 				});
 
 			} else {
@@ -158,9 +185,14 @@ angular.module('TFApp').controller('BowCtrl', function ($rootScope, $scope, $rou
 	 * Saves the bow data when going to the bowsight markers page
 	 */
 	$scope.setHelperFormData = function () {
-		var markers = $scope.helper.tmpFormData.bow ? $scope.helper.tmpFormData.bow.markers : [];
-		$scope.helper.tmpFormData.bow = angular.copy($scope.bowDetails);
+
+		var markers = $scope.helper.tmpFormData.bow ? $scope.helper.tmpFormData.bow.markers :
+			($scope.bowDetails && $scope.bowDetails.markers ? $scope.bowDetails.markers : []);
+
+		$scope.helper.tmpFormData.bow         = angular.copy($scope.bowDetails);
 		$scope.helper.tmpFormData.bow.markers = markers;
+		$scope.helper.tmpFormData.bowAlt      = angular.copy($scope.bowDetailsAlt);
+
 	};
 
 	/**
@@ -224,6 +256,19 @@ angular.module('TFApp').controller('BowCtrl', function ($rootScope, $scope, $rou
 	 * @param {Object} bowData Data of the bow we want to edit
 	 */
 	var edit = function (bowData) {
+
+		if (!bowData.bowSize) {
+			bowData.bowSize = $scope.bowDetailsAlt.bowSize || null;
+		}
+		if (!bowData.riserSize) {
+			bowData.riserSize = $scope.bowDetailsAlt.riserSize || null;
+		}
+		if (!bowData.limbSize) {
+			bowData.limbSize = $scope.bowDetailsAlt.limbSize || null;
+		}
+
+		bowData.markers = $scope.helper.tmpFormData.bow ?
+			$scope.helper.tmpFormData.bow.markers : [];
 
 		$scope.data.update('bows', [bowData]).then(function (bow) {
 

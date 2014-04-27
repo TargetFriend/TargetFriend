@@ -1,4 +1,4 @@
-angular.module('TFApp').controller('BowMarkerCtrl', function ($scope, $routeParams, $navigate, $i18next) {
+angular.module('TFApp').controller('BowMarkerCtrl', function ($scope, $routeParams, $navigate, $timeout, $i18next) {
 
 	'use strict';
 
@@ -23,24 +23,20 @@ angular.module('TFApp').controller('BowMarkerCtrl', function ($scope, $routePara
 		};
 
 		if (!isEditPage && $scope.helper.tmpFormData.bow && $scope.helper.tmpFormData.bow.markers) {
-			setMarkers($scope.helper.tmpFormData.bow.markers);
+			setMarkers($scope.helper.tmpFormData.bow);
 		}
 
 		$scope.data.requireData(['bows', 'distances']).then(function () {
 
 			if (isEditPage) {
 
-				bowDetails = $scope.data.bowsById[$routeParams.bowID];
+				bowDetails = $scope.helper.tmpFormData.bow || $scope.data.bowsById[$routeParams.bowID];
 
 				setMarkers(bowDetails);
 
-				setActiveDistances();
-
-			} else {
-
-				setActiveDistances();
-
 			}
+
+			setActiveDistances();
 
 		});
 	}
@@ -95,32 +91,29 @@ angular.module('TFApp').controller('BowMarkerCtrl', function ($scope, $routePara
 			}
 		}
 
-		if (isEditPage) {
-
-			bowDetails.markers = markers;
-
-			/*
-			 * Update the bow and go back to the previous page
-			 */
-			$scope.data.update('bows', [bowDetails]).then(function (bow) {
-
-				$scope.$apply(function () {
-
-					$navigate.back();
-
-				});
-
-				console.log('TF :: bows :: set markers', bow[0]);
-
-			});
-
-
-		} else {
+		if ($scope.helper.tmpFormData.bow) {
 
 			$scope.helper.tmpFormData.bow.markers = markers;
 
 			$navigate.back();
 
+		} else if (isEditPage) {
+
+			bowDetails.markers = markers;
+
+			$scope.data.update('bows', [bowDetails]).then(function (bow) {
+
+				$scope.isSaved = true;
+
+				$timeout(function () {
+					$scope.isSaved = false;
+				}, 2000);
+
+				$navigate.back();
+
+				console.log('TF :: bows :: edited', bow[0]);
+
+			});
 		}
 
 	};

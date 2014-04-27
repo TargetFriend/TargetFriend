@@ -58,7 +58,14 @@ angular.module('TFApp').controller('ArrowsetCtrl', function ($rootScope, $scope,
 				 * can use the data
 				 */
 				$scope.data.requireData(['arrowsets']).then(function () {
-					$scope.arrowsetDetails = $scope.data.arrowsetsById[arrowsetID];
+
+					var arrowsetData = $scope.arrowsetDetails = $scope.data.arrowsetsById[arrowsetID];
+
+					if ($scope.formData.arrowMaterial.indexOf(arrowsetData.arrowMaterial) === -1) {
+						$scope.arrowsetDetailsAlt.arrowMaterial = arrowsetData.arrowMaterial;
+						arrowsetData.arrowMaterial = null;
+					}
+
 				});
 
 			} else {
@@ -155,6 +162,10 @@ angular.module('TFApp').controller('ArrowsetCtrl', function ($rootScope, $scope,
 
 		$scope.isSaving = true;
 
+		if (!arrowsetData.arrowMaterial) {
+			arrowsetData.arrowMaterial = $scope.arrowsetDetailsAlt.arrowMaterial || null;
+		}
+
 		if (!isEditPage) {
 			add(arrowsetData);
 		} else {
@@ -171,16 +182,6 @@ angular.module('TFApp').controller('ArrowsetCtrl', function ($rootScope, $scope,
 	 * @param {Object} arrowsetData Data of the arrowset we want to add
 	 */
 	var add = function (arrowsetData) {
-
-		if (!arrowsetData.arrowsetSize) {
-			arrowsetData.arrowsetSize = $scope.arrowsetDetailsAlt.arrowsetSize || null;
-		}
-		if (!arrowsetData.riserSize) {
-			arrowsetData.riserSize = $scope.arrowsetDetailsAlt.riserSize || null;
-		}
-		if (!arrowsetData.limbSize) {
-			arrowsetData.limbSize = $scope.arrowsetDetailsAlt.limbSize || null;
-		}
 
 		arrowsetData.dateStart = new Date();
 		arrowsetData.markers = $scope.helper.tmpFormData.arrowset ?
