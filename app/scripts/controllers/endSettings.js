@@ -11,7 +11,7 @@ angular.module('TFApp').controller('EndSettingsCtrl', function ($rootScope, $sco
 	$scope.endDetails = {
 		// hold in sync with end.js
 		targetScaleMain: 4,
-		targetScaleTop: 1.6,
+		targetScaleTop: 1.2,
 		arrowRadius: 8
 	};
 	/**

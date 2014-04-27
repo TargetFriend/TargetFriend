@@ -37,7 +37,7 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 		distanceID: 2,
 		targetFaceID: 1,
 		showArrowNumbers: 0,
-		targetScale: 1
+		targetScale: 0.9
 	};
 
 	$scope.formData = {
