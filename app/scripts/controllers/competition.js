@@ -158,9 +158,8 @@ angular.module('TFApp').controller('CompetitionCtrl', function ($rootScope, $sco
 
 		$scope.data.update('settings', $scope.data.settings).then(function (settings) {
 
-			$scope.$apply(function () {
-				$navigate.back();
-			});
+			$scope.isSaving = false;
+			$navigate.back();
 
 			console.log('TF :: settings :: saved competitionDefaults', settings);
 
