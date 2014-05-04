@@ -19,7 +19,7 @@
 			</div>
 		</div>
 
-		<div class="form__row--link" ng-click="$navigate.go('targetFaces');setHelperFormData()" ng-hide="isEditPage">
+		<div class="form__row--link" ng-click="$navigate.go('targetFaces');setHelperFormData()" ng-if="!isEditPage">
 			<div class="form__label center">
 				<img ng-if="roundDetails.targetFaceID" ng-src="{{data.targetFacesById[roundDetails.targetFaceID].img}}" style="width:100px;height:100px;">
 				<div ng-if="!roundDetails.targetFaceID" style="width:100px;height:100px;"></div>

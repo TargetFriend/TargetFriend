@@ -127,7 +127,6 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 			$scope.heading = setRoundDefaultsPage ? $i18next('settingsPage.defaults') : (isEditPage ? $i18next('edit') : $i18next('new'));
 			$scope.leftButton = {
 				name: 'back',
-				iconClass: 'icon-chevron-left',
 				tap: function () {
 					$navigate.back();
 				}
@@ -230,6 +229,14 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 
 		$scope.isSaving = true;
 
+		if (!data.outdoor) {
+			data.weather = null;
+			data.windspeed = null;
+			data.winddirection = null;
+		} else if (data.windspeed === $i18next('noWind')) {
+			data.winddirection = null;
+		}
+
 		if (setRoundDefaultsPage) {
 			saveRoundAsDefault(data);
 		} else if (!isEditPage) {
@@ -246,11 +253,15 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 
 		$scope.data.settings[0].roundDefaults = data;
 
+		if (!data.targetFaceID) {
+			data.targetNumber = null;
+			data.compound = 0;
+		}
+
 		$scope.data.update('settings', $scope.data.settings).then(function (settings) {
 
-			$scope.$apply(function () {
-				$navigate.back();
-			});
+			$scope.isSaving = false;
+			$navigate.back();
 
 			console.log('TF :: settings :: saved roundDefaults', settings);
 
@@ -271,14 +282,6 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 		roundData.competitionID = competitionID;
 		roundData.enabled = true;
 		roundData.ends = helper.createEmptyArrows(roundData.endNumber, roundData.arrowNumber);
-
-		if (!roundData.outdoor) {
-			roundData.weather = null;
-			roundData.windspeed = null;
-			roundData.winddirection = null;
-		} else if (roundData.windspeed === $i18next('noWind')) {
-			roundData.winddirection = null;
-		}
 
 		if (!roundData.targetFaceID) {
 			roundData.targetNumber = null;
@@ -306,14 +309,6 @@ angular.module('TFApp').controller('RoundCtrl', function ($rootScope, $scope, $r
 	var edit = function (roundData) {
 
 		var competition = $scope.data.competitionsById[competitionID];
-
-		if (!roundData.outdoor) {
-			roundData.weather = null;
-			roundData.windspeed = null;
-			roundData.winddirection = null;
-		} else if (roundData.windspeed === $i18next('noWind')) {
-			roundData.winddirection = null;
-		}
 
 		competition.roundsById[$routeParams.roundID] = roundData;
 
